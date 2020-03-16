@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BasicConstraintsFMmetamodel" nsURI="http://caosd.lcc.uma.es/BasicConstraintsFMmetamodel"
+    nsPrefix="BasicConstraintsFMmetamodel">
+  <eClassifiers xsi:type="ecore:EClass" name="CrossTreeConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//CrossTreeConstraintType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightFeature" lowerBound="1"
+        eType="ecore:EClass ../BasicFMmetamodel.ecore#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftFeature" lowerBound="1"
+        eType="ecore:EClass ../BasicFMmetamodel.ecore#//Feature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CrossTreeConstraintType">
+    <eLiterals name="REQUIRES"/>
+    <eLiterals name="EXCLUDES" value="1"/>
+  </eClassifiers>
+</ecore:EPackage>

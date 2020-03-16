@@ -1,0 +1,135 @@
+{
+  "id": "ck7ozvnlz000l3b5lgjc9jtyg",
+  "name": "BeverageVendingMachines",
+  "timestamp": "2020-03-16T17:22:06.742Z",
+  "features": {
+    "ck7ozvnly000k3b5lcxnx15rl": {
+      "name": "VendingMachine",
+      "optional": false,
+      "type": "FEATURE"
+    },
+    "ck7ozw0eu000m3b5lb1c4fref": {
+      "name": "CancelPurchase",
+      "optional": true,
+      "type": "FEATURE"
+    },
+    "ck7ozwbi4000n3b5l3mnmbu5u": {
+      "name": "Beverages",
+      "optional": false,
+      "type": "OR"
+    },
+    "ck7ozynzq00003b5lv8yy1div": {
+      "name": "FreeDrinks",
+      "optional": true,
+      "type": "FEATURE"
+    },
+    "ck7ozyxol00013b5l403oyyff": {
+      "name": "Currency",
+      "optional": false,
+      "type": "XOR"
+    },
+    "ck7ozwo3o000o3b5l3ithy0if": {
+      "name": "Soda",
+      "optional": true,
+      "type": "FEATURE"
+    },
+    "ck7ozx09h000p3b5l7r8caxko": {
+      "name": "Tea",
+      "optional": true,
+      "type": "FEATURE"
+    },
+    "ck7ozz3ml00023b5lia2tke23": {
+      "name": "Euro",
+      "optional": true,
+      "type": "FEATURE"
+    },
+    "ck7ozzjy500033b5ldhj5e925": {
+      "name": "Dollar",
+      "optional": true,
+      "type": "FEATURE"
+    }
+  },
+  "tree": {
+    "id": "ck7ozvnly000k3b5lcxnx15rl",
+    "children": [
+      {
+        "id": "ck7ozw0eu000m3b5lb1c4fref"
+      },
+      {
+        "id": "ck7ozwbi4000n3b5l3mnmbu5u",
+        "children": [
+          {
+            "id": "ck7ozwo3o000o3b5l3ithy0if"
+          },
+          {
+            "id": "ck7ozx09h000p3b5l7r8caxko"
+          }
+        ]
+      },
+      {
+        "id": "ck7ozynzq00003b5lv8yy1div"
+      },
+      {
+        "id": "ck7ozyxol00013b5l403oyyff",
+        "children": [
+          {
+            "id": "ck7ozz3ml00023b5lia2tke23"
+          },
+          {
+            "id": "ck7ozzjy500033b5ldhj5e925"
+          }
+        ]
+      }
+    ]
+  },
+  "constraints": {},
+  "conjectures": {},
+  "checks": {
+    "CONSISTENCY": true,
+    "CONJECTURES": null,
+    "COMMONFEATURES": [
+      "ck7ozvnly000k3b5lcxnx15rl",
+      "ck7ozwbi4000n3b5l3mnmbu5u",
+      "ck7ozyxol00013b5l403oyyff"
+    ],
+    "UNIQUEFEATURES": [],
+    "DEADFEATURES": [],
+    "ATOMICSETS": [
+      [
+        "ck7ozvnly000k3b5lcxnx15rl",
+        "ck7ozwbi4000n3b5l3mnmbu5u",
+        "ck7ozyxol00013b5l403oyyff"
+      ]
+    ],
+    "POSSIBLECONFIGURATIONS": "24",
+    "COMMONALITIES": {
+      "ck7ozvnly000k3b5lcxnx15rl": 1,
+      "ck7ozw0eu000m3b5lb1c4fref": 0.5,
+      "ck7ozwbi4000n3b5l3mnmbu5u": 1,
+      "ck7ozynzq00003b5lv8yy1div": 0.5,
+      "ck7ozyxol00013b5l403oyyff": 1,
+      "ck7ozwo3o000o3b5l3ithy0if": 0.6666666666666666,
+      "ck7ozx09h000p3b5l7r8caxko": 0.6666666666666666,
+      "ck7ozz3ml00023b5lia2tke23": 0.5,
+      "ck7ozzjy500033b5ldhj5e925": 0.5
+    }
+  },
+  "configurations": {
+    "ck7umm9p600003b5ldv4kq3k0": {
+      "name": "Configuration 1584372734106",
+      "mode": "AUTOMATIC",
+      "decisions": {
+        "ck7ozvnly000k3b5lcxnx15rl": "SYSTEM_SELECTED",
+        "ck7ozw0eu000m3b5lb1c4fref": "UNDECIDED",
+        "ck7ozwbi4000n3b5l3mnmbu5u": "SYSTEM_SELECTED",
+        "ck7ozynzq00003b5lv8yy1div": "UNDECIDED",
+        "ck7ozyxol00013b5l403oyyff": "SYSTEM_SELECTED",
+        "ck7ozwo3o000o3b5l3ithy0if": "USER_SELECTED",
+        "ck7ozx09h000p3b5l7r8caxko": "UNDECIDED",
+        "ck7ozz3ml00023b5lia2tke23": "USER_SELECTED",
+        "ck7ozzjy500033b5ldhj5e925": "SYSTEM_DESELECTED"
+      },
+      "status": "BUILDABLE"
+    }
+  }
+}

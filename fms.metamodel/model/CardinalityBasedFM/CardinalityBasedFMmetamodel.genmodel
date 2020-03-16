@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fms.metamodel/src-gen" editDirectory="/fms.metamodel.edit/src-gen"
+    editorDirectory="/fms.metamodel.editor/src-gen" modelPluginID="fms.metamodel"
+    modelName="CardinalityBasedFMmetamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/fms.metamodel.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../BasicFMmetamodel.genmodel#//BasicFMmetamodel"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>CardinalityBasedFMmetamodel.ecore</foreignModel>
+  <genPackages prefix="CardinalityBasedFMmetamodel" basePackage="uma.caosd.rhea" disposableProviderFactory="true"
+      ecorePackage="CardinalityBasedFMmetamodel.ecore#/">
+    <genClasses ecoreClass="CardinalityBasedFMmetamodel.ecore#//GroupFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CardinalityBasedFMmetamodel.ecore#//GroupFeature/lower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CardinalityBasedFMmetamodel.ecore#//GroupFeature/upper"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

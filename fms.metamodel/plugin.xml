@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BasicFMmetamodel -->
+      <package
+            uri="http://caosd.lcc.uma.es/BasicFMmetamodel"
+            class="uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage"
+            genModel="model/BasicFMmetamodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated CardinalityBasedFMmetamodel -->
+      <package
+            uri="http://caosd.lcc.uma.es/CardinalityBasedFMmetamodel"
+            class="uma.caosd.rhea.CardinalityBasedFMmetamodel.CardinalityBasedFMmetamodelPackage"
+            genModel="model/CardinalityBasedFM/CardinalityBasedFMmetamodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BasicConstraintsFMmetamodel -->
+      <package
+            uri="http://caosd.lcc.uma.es/BasicConstraintsFMmetamodel"
+            class="uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraintsFMmetamodelPackage"
+            genModel="model/BasicConstraintFM/BasicConstraintsFMmetamodel.genmodel"/>
+   </extension>
+
+</plugin>
