@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="AdvancedConstraintsFMmetamodel" nsURI="http://caosd.lcc.uma.es/AdvancedConstraintsFMmetamodel"
+    nsPrefix="AdvancedConstraintsFMmetamodel">
+  <eClassifiers xsi:type="ecore:EClass" name="AdvancedConstraint" eSuperTypes="../BasicFMmetamodel.ecore#//CrossTreeConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="term" lowerBound="1" eType="#//Term"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TermType">
+    <eLiterals name="not" value="1"/>
+    <eLiterals name="equiv" value="2"/>
+    <eLiterals name="excludes" value="3"/>
+    <eLiterals name="implies" value="4"/>
+    <eLiterals name="and" value="5"/>
+    <eLiterals name="or" value="6"/>
+    <eLiterals name="xor" value="7"/>
+    <eLiterals name="feature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Term">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TermType"
+        defaultValueLiteral="feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operands" upperBound="-1"
+        eType="#//Term" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass ../BasicFMmetamodel.ecore#//Feature"/>
+  </eClassifiers>
+</ecore:EPackage>

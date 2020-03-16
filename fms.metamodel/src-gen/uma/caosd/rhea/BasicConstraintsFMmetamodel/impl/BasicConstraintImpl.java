@@ -8,30 +8,31 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint;
 import uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraintsFMmetamodelPackage;
-import uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint;
 import uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraintType;
 
 import uma.caosd.rhea.BasicFMmetamodel.Feature;
 
+import uma.caosd.rhea.BasicFMmetamodel.impl.CrossTreeConstraintImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Cross Tree Constraint</b></em>'.
+ * An implementation of the model object '<em><b>Basic Constraint</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.CrossTreeConstraintImpl#getType <em>Type</em>}</li>
- *   <li>{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.CrossTreeConstraintImpl#getRightFeature <em>Right Feature</em>}</li>
- *   <li>{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.CrossTreeConstraintImpl#getLeftFeature <em>Left Feature</em>}</li>
+ *   <li>{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintImpl#getType <em>Type</em>}</li>
+ *   <li>{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintImpl#getRightFeature <em>Right Feature</em>}</li>
+ *   <li>{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintImpl#getLeftFeature <em>Left Feature</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implements CrossTreeConstraint {
+public class BasicConstraintImpl extends CrossTreeConstraintImpl implements BasicConstraint {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -77,7 +78,7 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CrossTreeConstraintImpl() {
+	protected BasicConstraintImpl() {
 		super();
 	}
 
@@ -88,7 +89,7 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return BasicConstraintsFMmetamodelPackage.Literals.CROSS_TREE_CONSTRAINT;
+		return BasicConstraintsFMmetamodelPackage.Literals.BASIC_CONSTRAINT;
 	}
 
 	/**
@@ -109,7 +110,7 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 		CrossTreeConstraintType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__TYPE, oldType, type));
 	}
 
 	/**
@@ -123,7 +124,7 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 			rightFeature = (Feature)eResolveProxy(oldRightFeature);
 			if (rightFeature != oldRightFeature) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__RIGHT_FEATURE, oldRightFeature, rightFeature));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__RIGHT_FEATURE, oldRightFeature, rightFeature));
 			}
 		}
 		return rightFeature;
@@ -147,7 +148,7 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 		Feature oldRightFeature = rightFeature;
 		rightFeature = newRightFeature;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__RIGHT_FEATURE, oldRightFeature, rightFeature));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__RIGHT_FEATURE, oldRightFeature, rightFeature));
 	}
 
 	/**
@@ -161,7 +162,7 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 			leftFeature = (Feature)eResolveProxy(oldLeftFeature);
 			if (leftFeature != oldLeftFeature) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__LEFT_FEATURE, oldLeftFeature, leftFeature));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__LEFT_FEATURE, oldLeftFeature, leftFeature));
 			}
 		}
 		return leftFeature;
@@ -185,7 +186,7 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 		Feature oldLeftFeature = leftFeature;
 		leftFeature = newLeftFeature;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__LEFT_FEATURE, oldLeftFeature, leftFeature));
+			eNotify(new ENotificationImpl(this, Notification.SET, BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__LEFT_FEATURE, oldLeftFeature, leftFeature));
 	}
 
 	/**
@@ -196,12 +197,12 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__TYPE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__TYPE:
 				return getType();
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__RIGHT_FEATURE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__RIGHT_FEATURE:
 				if (resolve) return getRightFeature();
 				return basicGetRightFeature();
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__LEFT_FEATURE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__LEFT_FEATURE:
 				if (resolve) return getLeftFeature();
 				return basicGetLeftFeature();
 		}
@@ -216,13 +217,13 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__TYPE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__TYPE:
 				setType((CrossTreeConstraintType)newValue);
 				return;
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__RIGHT_FEATURE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__RIGHT_FEATURE:
 				setRightFeature((Feature)newValue);
 				return;
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__LEFT_FEATURE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__LEFT_FEATURE:
 				setLeftFeature((Feature)newValue);
 				return;
 		}
@@ -237,13 +238,13 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__TYPE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__RIGHT_FEATURE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__RIGHT_FEATURE:
 				setRightFeature((Feature)null);
 				return;
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__LEFT_FEATURE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__LEFT_FEATURE:
 				setLeftFeature((Feature)null);
 				return;
 		}
@@ -258,11 +259,11 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__TYPE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__TYPE:
 				return type != TYPE_EDEFAULT;
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__RIGHT_FEATURE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__RIGHT_FEATURE:
 				return rightFeature != null;
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT__LEFT_FEATURE:
+			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT__LEFT_FEATURE:
 				return leftFeature != null;
 		}
 		return super.eIsSet(featureID);
@@ -284,4 +285,4 @@ public class CrossTreeConstraintImpl extends MinimalEObjectImpl.Container implem
 		return result.toString();
 	}
 
-} //CrossTreeConstraintImpl
+} //BasicConstraintImpl

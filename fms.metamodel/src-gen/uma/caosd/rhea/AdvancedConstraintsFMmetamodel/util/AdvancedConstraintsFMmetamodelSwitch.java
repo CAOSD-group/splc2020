@@ -1,13 +1,13 @@
 /**
  */
-package uma.caosd.rhea.BasicConstraintsFMmetamodel.util;
+package uma.caosd.rhea.AdvancedConstraintsFMmetamodel.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import uma.caosd.rhea.BasicConstraintsFMmetamodel.*;
+import uma.caosd.rhea.AdvancedConstraintsFMmetamodel.*;
 
 import uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint;
 
@@ -21,17 +21,17 @@ import uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraintsFMmetamodelPackage
+ * @see uma.caosd.rhea.AdvancedConstraintsFMmetamodel.AdvancedConstraintsFMmetamodelPackage
  * @generated
  */
-public class BasicConstraintsFMmetamodelSwitch<T> extends Switch<T> {
+public class AdvancedConstraintsFMmetamodelSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static BasicConstraintsFMmetamodelPackage modelPackage;
+	protected static AdvancedConstraintsFMmetamodelPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -39,9 +39,9 @@ public class BasicConstraintsFMmetamodelSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BasicConstraintsFMmetamodelSwitch() {
+	public AdvancedConstraintsFMmetamodelSwitch() {
 		if (modelPackage == null) {
-			modelPackage = BasicConstraintsFMmetamodelPackage.eINSTANCE;
+			modelPackage = AdvancedConstraintsFMmetamodelPackage.eINSTANCE;
 		}
 	}
 
@@ -68,10 +68,16 @@ public class BasicConstraintsFMmetamodelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT: {
-				BasicConstraint basicConstraint = (BasicConstraint)theEObject;
-				T result = caseBasicConstraint(basicConstraint);
-				if (result == null) result = caseCrossTreeConstraint(basicConstraint);
+			case AdvancedConstraintsFMmetamodelPackage.ADVANCED_CONSTRAINT: {
+				AdvancedConstraint advancedConstraint = (AdvancedConstraint)theEObject;
+				T result = caseAdvancedConstraint(advancedConstraint);
+				if (result == null) result = caseCrossTreeConstraint(advancedConstraint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AdvancedConstraintsFMmetamodelPackage.TERM: {
+				Term term = (Term)theEObject;
+				T result = caseTerm(term);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -80,17 +86,32 @@ public class BasicConstraintsFMmetamodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Basic Constraint</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Advanced Constraint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Basic Constraint</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Advanced Constraint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBasicConstraint(BasicConstraint object) {
+	public T caseAdvancedConstraint(AdvancedConstraint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Term</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Term</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTerm(Term object) {
 		return null;
 	}
 
@@ -125,4 +146,4 @@ public class BasicConstraintsFMmetamodelSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //BasicConstraintsFMmetamodelSwitch
+} //AdvancedConstraintsFMmetamodelSwitch

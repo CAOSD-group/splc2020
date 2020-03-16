@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.FeatureModel#getName <em>Name</em>}</li>
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.FeatureModel#getRoot <em>Root</em>}</li>
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.FeatureModel#getFeatures <em>Features</em>}</li>
+ *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.FeatureModel#getCrossTreeConstraints <em>Cross Tree Constraints</em>}</li>
  * </ul>
  *
  * @see uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage#getFeatureModel()
@@ -80,6 +81,18 @@ public interface FeatureModel extends EObject {
 	 * @generated
 	 */
 	EList<Feature> getFeatures();
+
+	/**
+	 * Returns the value of the '<em><b>Cross Tree Constraints</b></em>' containment reference list.
+	 * The list contents are of type {@link uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cross Tree Constraints</em>' containment reference list.
+	 * @see uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage#getFeatureModel_CrossTreeConstraints()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CrossTreeConstraint> getCrossTreeConstraints();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -95,13 +95,22 @@ public interface BasicFMmetamodelPackage extends EPackage {
 	int FEATURE_MODEL__FEATURES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Cross Tree Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_MODEL__CROSS_TREE_CONSTRAINTS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Feature Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_MODEL_FEATURE_COUNT = 3;
+	int FEATURE_MODEL_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Feature</em>' operation.
@@ -212,6 +221,34 @@ public interface BasicFMmetamodelPackage extends EPackage {
 	 */
 	int FEATURE_OPERATION_COUNT = 2;
 
+	/**
+	 * The meta object id for the '{@link uma.caosd.rhea.BasicFMmetamodel.impl.CrossTreeConstraintImpl <em>Cross Tree Constraint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see uma.caosd.rhea.BasicFMmetamodel.impl.CrossTreeConstraintImpl
+	 * @see uma.caosd.rhea.BasicFMmetamodel.impl.BasicFMmetamodelPackageImpl#getCrossTreeConstraint()
+	 * @generated
+	 */
+	int CROSS_TREE_CONSTRAINT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Cross Tree Constraint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CROSS_TREE_CONSTRAINT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Cross Tree Constraint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CROSS_TREE_CONSTRAINT_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link uma.caosd.rhea.BasicFMmetamodel.FeatureModel <em>Feature Model</em>}'.
@@ -255,6 +292,17 @@ public interface BasicFMmetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getFeatureModel_Features();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link uma.caosd.rhea.BasicFMmetamodel.FeatureModel#getCrossTreeConstraints <em>Cross Tree Constraints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cross Tree Constraints</em>'.
+	 * @see uma.caosd.rhea.BasicFMmetamodel.FeatureModel#getCrossTreeConstraints()
+	 * @see #getFeatureModel()
+	 * @generated
+	 */
+	EReference getFeatureModel_CrossTreeConstraints();
 
 	/**
 	 * Returns the meta object for the '{@link uma.caosd.rhea.BasicFMmetamodel.FeatureModel#getFeature(java.lang.String) <em>Get Feature</em>}' operation.
@@ -352,6 +400,16 @@ public interface BasicFMmetamodelPackage extends EPackage {
 	EOperation getFeature__IsRoot();
 
 	/**
+	 * Returns the meta object for class '{@link uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint <em>Cross Tree Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cross Tree Constraint</em>'.
+	 * @see uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint
+	 * @generated
+	 */
+	EClass getCrossTreeConstraint();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -407,6 +465,14 @@ public interface BasicFMmetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FEATURE_MODEL__FEATURES = eINSTANCE.getFeatureModel_Features();
+
+		/**
+		 * The meta object literal for the '<em><b>Cross Tree Constraints</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE_MODEL__CROSS_TREE_CONSTRAINTS = eINSTANCE.getFeatureModel_CrossTreeConstraints();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Feature</b></em>' operation.
@@ -481,6 +547,16 @@ public interface BasicFMmetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation FEATURE___IS_ROOT = eINSTANCE.getFeature__IsRoot();
+
+		/**
+		 * The meta object literal for the '{@link uma.caosd.rhea.BasicFMmetamodel.impl.CrossTreeConstraintImpl <em>Cross Tree Constraint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see uma.caosd.rhea.BasicFMmetamodel.impl.CrossTreeConstraintImpl
+		 * @see uma.caosd.rhea.BasicFMmetamodel.impl.BasicFMmetamodelPackageImpl#getCrossTreeConstraint()
+		 * @generated
+		 */
+		EClass CROSS_TREE_CONSTRAINT = eINSTANCE.getCrossTreeConstraint();
 
 	}
 

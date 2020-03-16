@@ -11,12 +11,15 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: uma.caosd.rhea.BasicFMmetamodel,
  uma.caosd.rhea.BasicFMmetamodel.impl,
  uma.caosd.rhea.BasicFMmetamodel.util,
- uma.caosd.rhea.CardinalityBasedFMmetamodel,
- uma.caosd.rhea.CardinalityBasedFMmetamodel.impl,
- uma.caosd.rhea.CardinalityBasedFMmetamodel.util,
  uma.caosd.rhea.BasicConstraintsFMmetamodel,
  uma.caosd.rhea.BasicConstraintsFMmetamodel.impl,
- uma.caosd.rhea.BasicConstraintsFMmetamodel.util
+ uma.caosd.rhea.BasicConstraintsFMmetamodel.util,
+ uma.caosd.rhea.AdvancedConstraintsFMmetamodel,
+ uma.caosd.rhea.AdvancedConstraintsFMmetamodel.impl,
+ uma.caosd.rhea.AdvancedConstraintsFMmetamodel.util,
+ uma.caosd.rhea.CardinalityBasedFMmetamodel,
+ uma.caosd.rhea.CardinalityBasedFMmetamodel.impl,
+ uma.caosd.rhea.CardinalityBasedFMmetamodel.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  fms.metamodel;visibility:=reexport

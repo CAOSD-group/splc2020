@@ -15,19 +15,27 @@
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BasicConstraintsFMmetamodel -->
+      <package
+            uri="http://caosd.lcc.uma.es/BasicConstraintsFMmetamodel"
+            class="uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraintsFMmetamodelPackage"
+            genModel="model/BasicConstraintsFM/BasicConstraintsFMmetamodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated AdvancedConstraintsFMmetamodel -->
+      <package
+            uri="http://caosd.lcc.uma.es/AdvancedConstraintsFMmetamodel"
+            class="uma.caosd.rhea.AdvancedConstraintsFMmetamodel.AdvancedConstraintsFMmetamodelPackage"
+            genModel="model/AdvancedConstraintsFM/AdvancedConstraintsFMmetamodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated CardinalityBasedFMmetamodel -->
       <package
             uri="http://caosd.lcc.uma.es/CardinalityBasedFMmetamodel"
             class="uma.caosd.rhea.CardinalityBasedFMmetamodel.CardinalityBasedFMmetamodelPackage"
             genModel="model/CardinalityBasedFM/CardinalityBasedFMmetamodel.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated BasicConstraintsFMmetamodel -->
-      <package
-            uri="http://caosd.lcc.uma.es/BasicConstraintsFMmetamodel"
-            class="uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraintsFMmetamodelPackage"
-            genModel="model/BasicConstraintFM/BasicConstraintsFMmetamodel.genmodel"/>
    </extension>
 
 </plugin>

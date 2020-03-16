@@ -1,6 +1,6 @@
 /**
  */
-package uma.caosd.rhea.BasicConstraintsFMmetamodel.impl;
+package uma.caosd.rhea.AdvancedConstraintsFMmetamodel.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import uma.caosd.rhea.BasicConstraintsFMmetamodel.*;
+import uma.caosd.rhea.AdvancedConstraintsFMmetamodel.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,24 +19,24 @@ import uma.caosd.rhea.BasicConstraintsFMmetamodel.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl implements BasicConstraintsFMmetamodelFactory {
+public class AdvancedConstraintsFMmetamodelFactoryImpl extends EFactoryImpl implements AdvancedConstraintsFMmetamodelFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static BasicConstraintsFMmetamodelFactory init() {
+	public static AdvancedConstraintsFMmetamodelFactory init() {
 		try {
-			BasicConstraintsFMmetamodelFactory theBasicConstraintsFMmetamodelFactory = (BasicConstraintsFMmetamodelFactory)EPackage.Registry.INSTANCE.getEFactory(BasicConstraintsFMmetamodelPackage.eNS_URI);
-			if (theBasicConstraintsFMmetamodelFactory != null) {
-				return theBasicConstraintsFMmetamodelFactory;
+			AdvancedConstraintsFMmetamodelFactory theAdvancedConstraintsFMmetamodelFactory = (AdvancedConstraintsFMmetamodelFactory)EPackage.Registry.INSTANCE.getEFactory(AdvancedConstraintsFMmetamodelPackage.eNS_URI);
+			if (theAdvancedConstraintsFMmetamodelFactory != null) {
+				return theAdvancedConstraintsFMmetamodelFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new BasicConstraintsFMmetamodelFactoryImpl();
+		return new AdvancedConstraintsFMmetamodelFactoryImpl();
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BasicConstraintsFMmetamodelFactoryImpl() {
+	public AdvancedConstraintsFMmetamodelFactoryImpl() {
 		super();
 	}
 
@@ -57,7 +57,8 @@ public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl impleme
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case BasicConstraintsFMmetamodelPackage.BASIC_CONSTRAINT: return createBasicConstraint();
+			case AdvancedConstraintsFMmetamodelPackage.ADVANCED_CONSTRAINT: return createAdvancedConstraint();
+			case AdvancedConstraintsFMmetamodelPackage.TERM: return createTerm();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -71,8 +72,8 @@ public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl impleme
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT_TYPE:
-				return createCrossTreeConstraintTypeFromString(eDataType, initialValue);
+			case AdvancedConstraintsFMmetamodelPackage.TERM_TYPE:
+				return createTermTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -86,8 +87,8 @@ public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl impleme
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case BasicConstraintsFMmetamodelPackage.CROSS_TREE_CONSTRAINT_TYPE:
-				return convertCrossTreeConstraintTypeToString(eDataType, instanceValue);
+			case AdvancedConstraintsFMmetamodelPackage.TERM_TYPE:
+				return convertTermTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -98,9 +99,9 @@ public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BasicConstraint createBasicConstraint() {
-		BasicConstraintImpl basicConstraint = new BasicConstraintImpl();
-		return basicConstraint;
+	public AdvancedConstraint createAdvancedConstraint() {
+		AdvancedConstraintImpl advancedConstraint = new AdvancedConstraintImpl();
+		return advancedConstraint;
 	}
 
 	/**
@@ -108,8 +109,18 @@ public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CrossTreeConstraintType createCrossTreeConstraintTypeFromString(EDataType eDataType, String initialValue) {
-		CrossTreeConstraintType result = CrossTreeConstraintType.get(initialValue);
+	public Term createTerm() {
+		TermImpl term = new TermImpl();
+		return term;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TermType createTermTypeFromString(EDataType eDataType, String initialValue) {
+		TermType result = TermType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -119,7 +130,7 @@ public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertCrossTreeConstraintTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertTermTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -128,8 +139,8 @@ public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BasicConstraintsFMmetamodelPackage getBasicConstraintsFMmetamodelPackage() {
-		return (BasicConstraintsFMmetamodelPackage)getEPackage();
+	public AdvancedConstraintsFMmetamodelPackage getAdvancedConstraintsFMmetamodelPackage() {
+		return (AdvancedConstraintsFMmetamodelPackage)getEPackage();
 	}
 
 	/**
@@ -139,8 +150,8 @@ public class BasicConstraintsFMmetamodelFactoryImpl extends EFactoryImpl impleme
 	 * @generated
 	 */
 	@Deprecated
-	public static BasicConstraintsFMmetamodelPackage getPackage() {
-		return BasicConstraintsFMmetamodelPackage.eINSTANCE;
+	public static AdvancedConstraintsFMmetamodelPackage getPackage() {
+		return AdvancedConstraintsFMmetamodelPackage.eINSTANCE;
 	}
 
-} //BasicConstraintsFMmetamodelFactoryImpl
+} //AdvancedConstraintsFMmetamodelFactoryImpl

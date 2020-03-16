@@ -11,6 +11,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
         eType="#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="crossTreeConstraints" upperBound="-1"
+        eType="#//CrossTreeConstraint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Feature">
     <eOperations name="isLeaf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -24,4 +26,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Feature"
         eOpposite="#//Feature/children"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CrossTreeConstraint" abstract="true"/>
 </ecore:EPackage>

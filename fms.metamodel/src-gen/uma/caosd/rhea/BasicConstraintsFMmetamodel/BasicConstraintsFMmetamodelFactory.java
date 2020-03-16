@@ -22,13 +22,13 @@ public interface BasicConstraintsFMmetamodelFactory extends EFactory {
 	BasicConstraintsFMmetamodelFactory eINSTANCE = uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintsFMmetamodelFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Cross Tree Constraint</em>'.
+	 * Returns a new object of class '<em>Basic Constraint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cross Tree Constraint</em>'.
+	 * @return a new object of class '<em>Basic Constraint</em>'.
 	 * @generated
 	 */
-	CrossTreeConstraint createCrossTreeConstraint();
+	BasicConstraint createBasicConstraint();
 
 	/**
 	 * Returns the package supported by this factory.

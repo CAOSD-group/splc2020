@@ -1,4 +1,4 @@
-package fms.interfaces;
+package uma.caosd.rhea.fms.parsers.tests;
 
 import uma.caosd.rhea.BasicFMmetamodel.Feature;
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;

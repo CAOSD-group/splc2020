@@ -8,6 +8,8 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Package</b> for the model.
@@ -58,14 +60,14 @@ public interface BasicConstraintsFMmetamodelPackage extends EPackage {
 	BasicConstraintsFMmetamodelPackage eINSTANCE = uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintsFMmetamodelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.CrossTreeConstraintImpl <em>Cross Tree Constraint</em>}' class.
+	 * The meta object id for the '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintImpl <em>Basic Constraint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.CrossTreeConstraintImpl
-	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintsFMmetamodelPackageImpl#getCrossTreeConstraint()
+	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintImpl
+	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintsFMmetamodelPackageImpl#getBasicConstraint()
 	 * @generated
 	 */
-	int CROSS_TREE_CONSTRAINT = 0;
+	int BASIC_CONSTRAINT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -74,7 +76,7 @@ public interface BasicConstraintsFMmetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_TREE_CONSTRAINT__TYPE = 0;
+	int BASIC_CONSTRAINT__TYPE = BasicFMmetamodelPackage.CROSS_TREE_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Right Feature</b></em>' reference.
@@ -83,7 +85,7 @@ public interface BasicConstraintsFMmetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_TREE_CONSTRAINT__RIGHT_FEATURE = 1;
+	int BASIC_CONSTRAINT__RIGHT_FEATURE = BasicFMmetamodelPackage.CROSS_TREE_CONSTRAINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Left Feature</b></em>' reference.
@@ -92,25 +94,25 @@ public interface BasicConstraintsFMmetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_TREE_CONSTRAINT__LEFT_FEATURE = 2;
+	int BASIC_CONSTRAINT__LEFT_FEATURE = BasicFMmetamodelPackage.CROSS_TREE_CONSTRAINT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Cross Tree Constraint</em>' class.
+	 * The number of structural features of the '<em>Basic Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_TREE_CONSTRAINT_FEATURE_COUNT = 3;
+	int BASIC_CONSTRAINT_FEATURE_COUNT = BasicFMmetamodelPackage.CROSS_TREE_CONSTRAINT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Cross Tree Constraint</em>' class.
+	 * The number of operations of the '<em>Basic Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CROSS_TREE_CONSTRAINT_OPERATION_COUNT = 0;
+	int BASIC_CONSTRAINT_OPERATION_COUNT = BasicFMmetamodelPackage.CROSS_TREE_CONSTRAINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraintType <em>Cross Tree Constraint Type</em>}' enum.
@@ -124,47 +126,47 @@ public interface BasicConstraintsFMmetamodelPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint <em>Cross Tree Constraint</em>}'.
+	 * Returns the meta object for class '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint <em>Basic Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Cross Tree Constraint</em>'.
-	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint
+	 * @return the meta object for class '<em>Basic Constraint</em>'.
+	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint
 	 * @generated
 	 */
-	EClass getCrossTreeConstraint();
+	EClass getBasicConstraint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint#getType()
-	 * @see #getCrossTreeConstraint()
+	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint#getType()
+	 * @see #getBasicConstraint()
 	 * @generated
 	 */
-	EAttribute getCrossTreeConstraint_Type();
+	EAttribute getBasicConstraint_Type();
 
 	/**
-	 * Returns the meta object for the reference '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint#getRightFeature <em>Right Feature</em>}'.
+	 * Returns the meta object for the reference '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint#getRightFeature <em>Right Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Right Feature</em>'.
-	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint#getRightFeature()
-	 * @see #getCrossTreeConstraint()
+	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint#getRightFeature()
+	 * @see #getBasicConstraint()
 	 * @generated
 	 */
-	EReference getCrossTreeConstraint_RightFeature();
+	EReference getBasicConstraint_RightFeature();
 
 	/**
-	 * Returns the meta object for the reference '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint#getLeftFeature <em>Left Feature</em>}'.
+	 * Returns the meta object for the reference '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint#getLeftFeature <em>Left Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Left Feature</em>'.
-	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint#getLeftFeature()
-	 * @see #getCrossTreeConstraint()
+	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint#getLeftFeature()
+	 * @see #getBasicConstraint()
 	 * @generated
 	 */
-	EReference getCrossTreeConstraint_LeftFeature();
+	EReference getBasicConstraint_LeftFeature();
 
 	/**
 	 * Returns the meta object for enum '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraintType <em>Cross Tree Constraint Type</em>}'.
@@ -200,14 +202,14 @@ public interface BasicConstraintsFMmetamodelPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.CrossTreeConstraintImpl <em>Cross Tree Constraint</em>}' class.
+		 * The meta object literal for the '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintImpl <em>Basic Constraint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.CrossTreeConstraintImpl
-		 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintsFMmetamodelPackageImpl#getCrossTreeConstraint()
+		 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintImpl
+		 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.impl.BasicConstraintsFMmetamodelPackageImpl#getBasicConstraint()
 		 * @generated
 		 */
-		EClass CROSS_TREE_CONSTRAINT = eINSTANCE.getCrossTreeConstraint();
+		EClass BASIC_CONSTRAINT = eINSTANCE.getBasicConstraint();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -215,7 +217,7 @@ public interface BasicConstraintsFMmetamodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CROSS_TREE_CONSTRAINT__TYPE = eINSTANCE.getCrossTreeConstraint_Type();
+		EAttribute BASIC_CONSTRAINT__TYPE = eINSTANCE.getBasicConstraint_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Right Feature</b></em>' reference feature.
@@ -223,7 +225,7 @@ public interface BasicConstraintsFMmetamodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CROSS_TREE_CONSTRAINT__RIGHT_FEATURE = eINSTANCE.getCrossTreeConstraint_RightFeature();
+		EReference BASIC_CONSTRAINT__RIGHT_FEATURE = eINSTANCE.getBasicConstraint_RightFeature();
 
 		/**
 		 * The meta object literal for the '<em><b>Left Feature</b></em>' reference feature.
@@ -231,7 +233,7 @@ public interface BasicConstraintsFMmetamodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CROSS_TREE_CONSTRAINT__LEFT_FEATURE = eINSTANCE.getCrossTreeConstraint_LeftFeature();
+		EReference BASIC_CONSTRAINT__LEFT_FEATURE = eINSTANCE.getBasicConstraint_LeftFeature();
 
 		/**
 		 * The meta object literal for the '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraintType <em>Cross Tree Constraint Type</em>}' enum.

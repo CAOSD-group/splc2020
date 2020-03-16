@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EObject;
 
 import uma.caosd.rhea.BasicConstraintsFMmetamodel.*;
 
+import uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
@@ -68,6 +70,10 @@ public class BasicConstraintsFMmetamodelAdapterFactory extends AdapterFactoryImp
 	protected BasicConstraintsFMmetamodelSwitch<Adapter> modelSwitch =
 		new BasicConstraintsFMmetamodelSwitch<Adapter>() {
 			@Override
+			public Adapter caseBasicConstraint(BasicConstraint object) {
+				return createBasicConstraintAdapter();
+			}
+			@Override
 			public Adapter caseCrossTreeConstraint(CrossTreeConstraint object) {
 				return createCrossTreeConstraintAdapter();
 			}
@@ -92,13 +98,27 @@ public class BasicConstraintsFMmetamodelAdapterFactory extends AdapterFactoryImp
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint <em>Cross Tree Constraint</em>}'.
+	 * Creates a new adapter for an object of class '{@link uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint <em>Basic Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint
+	 * @see uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint
+	 * @generated
+	 */
+	public Adapter createBasicConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint <em>Cross Tree Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint
 	 * @generated
 	 */
 	public Adapter createCrossTreeConstraintAdapter() {

@@ -1,6 +1,6 @@
 /**
  */
-package uma.caosd.rhea.BasicFMmetamodel.util;
+package uma.caosd.rhea.AdvancedConstraintsFMmetamodel.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,24 +9,26 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import uma.caosd.rhea.BasicFMmetamodel.*;
+import uma.caosd.rhea.AdvancedConstraintsFMmetamodel.*;
+
+import uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage
+ * @see uma.caosd.rhea.AdvancedConstraintsFMmetamodel.AdvancedConstraintsFMmetamodelPackage
  * @generated
  */
-public class BasicFMmetamodelAdapterFactory extends AdapterFactoryImpl {
+public class AdvancedConstraintsFMmetamodelAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static BasicFMmetamodelPackage modelPackage;
+	protected static AdvancedConstraintsFMmetamodelPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -34,9 +36,9 @@ public class BasicFMmetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BasicFMmetamodelAdapterFactory() {
+	public AdvancedConstraintsFMmetamodelAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = BasicFMmetamodelPackage.eINSTANCE;
+			modelPackage = AdvancedConstraintsFMmetamodelPackage.eINSTANCE;
 		}
 	}
 
@@ -65,15 +67,15 @@ public class BasicFMmetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BasicFMmetamodelSwitch<Adapter> modelSwitch =
-		new BasicFMmetamodelSwitch<Adapter>() {
+	protected AdvancedConstraintsFMmetamodelSwitch<Adapter> modelSwitch =
+		new AdvancedConstraintsFMmetamodelSwitch<Adapter>() {
 			@Override
-			public Adapter caseFeatureModel(FeatureModel object) {
-				return createFeatureModelAdapter();
+			public Adapter caseAdvancedConstraint(AdvancedConstraint object) {
+				return createAdvancedConstraintAdapter();
 			}
 			@Override
-			public Adapter caseFeature(Feature object) {
-				return createFeatureAdapter();
+			public Adapter caseTerm(Term object) {
+				return createTermAdapter();
 			}
 			@Override
 			public Adapter caseCrossTreeConstraint(CrossTreeConstraint object) {
@@ -100,30 +102,30 @@ public class BasicFMmetamodelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link uma.caosd.rhea.BasicFMmetamodel.FeatureModel <em>Feature Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link uma.caosd.rhea.AdvancedConstraintsFMmetamodel.AdvancedConstraint <em>Advanced Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see uma.caosd.rhea.BasicFMmetamodel.FeatureModel
+	 * @see uma.caosd.rhea.AdvancedConstraintsFMmetamodel.AdvancedConstraint
 	 * @generated
 	 */
-	public Adapter createFeatureModelAdapter() {
+	public Adapter createAdvancedConstraintAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link uma.caosd.rhea.BasicFMmetamodel.Feature <em>Feature</em>}'.
+	 * Creates a new adapter for an object of class '{@link uma.caosd.rhea.AdvancedConstraintsFMmetamodel.Term <em>Term</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see uma.caosd.rhea.BasicFMmetamodel.Feature
+	 * @see uma.caosd.rhea.AdvancedConstraintsFMmetamodel.Term
 	 * @generated
 	 */
-	public Adapter createFeatureAdapter() {
+	public Adapter createTermAdapter() {
 		return null;
 	}
 
@@ -153,4 +155,4 @@ public class BasicFMmetamodelAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //BasicFMmetamodelAdapterFactory
+} //AdvancedConstraintsFMmetamodelAdapterFactory

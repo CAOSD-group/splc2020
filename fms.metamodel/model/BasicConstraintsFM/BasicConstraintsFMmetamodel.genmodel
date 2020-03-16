@@ -13,10 +13,10 @@
       <genEnumLiterals ecoreEnumLiteral="BasicConstraintsFMmetamodel.ecore#//CrossTreeConstraintType/REQUIRES"/>
       <genEnumLiterals ecoreEnumLiteral="BasicConstraintsFMmetamodel.ecore#//CrossTreeConstraintType/EXCLUDES"/>
     </genEnums>
-    <genClasses ecoreClass="BasicConstraintsFMmetamodel.ecore#//CrossTreeConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BasicConstraintsFMmetamodel.ecore#//CrossTreeConstraint/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BasicConstraintsFMmetamodel.ecore#//CrossTreeConstraint/rightFeature"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BasicConstraintsFMmetamodel.ecore#//CrossTreeConstraint/leftFeature"/>
+    <genClasses ecoreClass="BasicConstraintsFMmetamodel.ecore#//BasicConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BasicConstraintsFMmetamodel.ecore#//BasicConstraint/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BasicConstraintsFMmetamodel.ecore#//BasicConstraint/rightFeature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BasicConstraintsFMmetamodel.ecore#//BasicConstraint/leftFeature"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

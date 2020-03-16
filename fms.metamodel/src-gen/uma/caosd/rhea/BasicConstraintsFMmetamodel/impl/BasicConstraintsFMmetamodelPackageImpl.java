@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraint;
 import uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraintsFMmetamodelFactory;
 import uma.caosd.rhea.BasicConstraintsFMmetamodel.BasicConstraintsFMmetamodelPackage;
-import uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraint;
 import uma.caosd.rhea.BasicConstraintsFMmetamodel.CrossTreeConstraintType;
 
 import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage;
@@ -29,7 +29,7 @@ public class BasicConstraintsFMmetamodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass crossTreeConstraintEClass = null;
+	private EClass basicConstraintEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,8 +107,8 @@ public class BasicConstraintsFMmetamodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCrossTreeConstraint() {
-		return crossTreeConstraintEClass;
+	public EClass getBasicConstraint() {
+		return basicConstraintEClass;
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class BasicConstraintsFMmetamodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCrossTreeConstraint_Type() {
-		return (EAttribute)crossTreeConstraintEClass.getEStructuralFeatures().get(0);
+	public EAttribute getBasicConstraint_Type() {
+		return (EAttribute)basicConstraintEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class BasicConstraintsFMmetamodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCrossTreeConstraint_RightFeature() {
-		return (EReference)crossTreeConstraintEClass.getEStructuralFeatures().get(1);
+	public EReference getBasicConstraint_RightFeature() {
+		return (EReference)basicConstraintEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -134,8 +134,8 @@ public class BasicConstraintsFMmetamodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCrossTreeConstraint_LeftFeature() {
-		return (EReference)crossTreeConstraintEClass.getEStructuralFeatures().get(2);
+	public EReference getBasicConstraint_LeftFeature() {
+		return (EReference)basicConstraintEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -175,10 +175,10 @@ public class BasicConstraintsFMmetamodelPackageImpl extends EPackageImpl impleme
 		isCreated = true;
 
 		// Create classes and their features
-		crossTreeConstraintEClass = createEClass(CROSS_TREE_CONSTRAINT);
-		createEAttribute(crossTreeConstraintEClass, CROSS_TREE_CONSTRAINT__TYPE);
-		createEReference(crossTreeConstraintEClass, CROSS_TREE_CONSTRAINT__RIGHT_FEATURE);
-		createEReference(crossTreeConstraintEClass, CROSS_TREE_CONSTRAINT__LEFT_FEATURE);
+		basicConstraintEClass = createEClass(BASIC_CONSTRAINT);
+		createEAttribute(basicConstraintEClass, BASIC_CONSTRAINT__TYPE);
+		createEReference(basicConstraintEClass, BASIC_CONSTRAINT__RIGHT_FEATURE);
+		createEReference(basicConstraintEClass, BASIC_CONSTRAINT__LEFT_FEATURE);
 
 		// Create enums
 		crossTreeConstraintTypeEEnum = createEEnum(CROSS_TREE_CONSTRAINT_TYPE);
@@ -215,12 +215,13 @@ public class BasicConstraintsFMmetamodelPackageImpl extends EPackageImpl impleme
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		basicConstraintEClass.getESuperTypes().add(theBasicFMmetamodelPackage.getCrossTreeConstraint());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(crossTreeConstraintEClass, CrossTreeConstraint.class, "CrossTreeConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCrossTreeConstraint_Type(), this.getCrossTreeConstraintType(), "type", null, 1, 1, CrossTreeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCrossTreeConstraint_RightFeature(), theBasicFMmetamodelPackage.getFeature(), null, "rightFeature", null, 1, 1, CrossTreeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCrossTreeConstraint_LeftFeature(), theBasicFMmetamodelPackage.getFeature(), null, "leftFeature", null, 1, 1, CrossTreeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(basicConstraintEClass, BasicConstraint.class, "BasicConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBasicConstraint_Type(), this.getCrossTreeConstraintType(), "type", null, 1, 1, BasicConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBasicConstraint_RightFeature(), theBasicFMmetamodelPackage.getFeature(), null, "rightFeature", null, 1, 1, BasicConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBasicConstraint_LeftFeature(), theBasicFMmetamodelPackage.getFeature(), null, "leftFeature", null, 1, 1, BasicConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(crossTreeConstraintTypeEEnum, CrossTreeConstraintType.class, "CrossTreeConstraintType");

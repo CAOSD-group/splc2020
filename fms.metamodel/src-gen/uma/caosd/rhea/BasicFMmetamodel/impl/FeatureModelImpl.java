@@ -13,9 +13,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage;
+import uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint;
 import uma.caosd.rhea.BasicFMmetamodel.Feature;
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
 
@@ -30,6 +33,7 @@ import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.impl.FeatureModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.impl.FeatureModelImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.impl.FeatureModelImpl#getFeatures <em>Features</em>}</li>
+ *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.impl.FeatureModelImpl#getCrossTreeConstraints <em>Cross Tree Constraints</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,6 +78,16 @@ public class FeatureModelImpl extends MinimalEObjectImpl.Container implements Fe
 	 * @ordered
 	 */
 	protected EList<Feature> features;
+
+	/**
+	 * The cached value of the '{@link #getCrossTreeConstraints() <em>Cross Tree Constraints</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCrossTreeConstraints()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CrossTreeConstraint> crossTreeConstraints;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,6 +187,18 @@ public class FeatureModelImpl extends MinimalEObjectImpl.Container implements Fe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CrossTreeConstraint> getCrossTreeConstraints() {
+		if (crossTreeConstraints == null) {
+			crossTreeConstraints = new EObjectContainmentEList<CrossTreeConstraint>(CrossTreeConstraint.class, this, BasicFMmetamodelPackage.FEATURE_MODEL__CROSS_TREE_CONSTRAINTS);
+		}
+		return crossTreeConstraints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public Feature getFeature(String id) {
@@ -190,6 +216,8 @@ public class FeatureModelImpl extends MinimalEObjectImpl.Container implements Fe
 		switch (featureID) {
 			case BasicFMmetamodelPackage.FEATURE_MODEL__ROOT:
 				return basicSetRoot(null, msgs);
+			case BasicFMmetamodelPackage.FEATURE_MODEL__CROSS_TREE_CONSTRAINTS:
+				return ((InternalEList<?>)getCrossTreeConstraints()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -208,6 +236,8 @@ public class FeatureModelImpl extends MinimalEObjectImpl.Container implements Fe
 				return getRoot();
 			case BasicFMmetamodelPackage.FEATURE_MODEL__FEATURES:
 				return getFeatures();
+			case BasicFMmetamodelPackage.FEATURE_MODEL__CROSS_TREE_CONSTRAINTS:
+				return getCrossTreeConstraints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -231,6 +261,10 @@ public class FeatureModelImpl extends MinimalEObjectImpl.Container implements Fe
 				getFeatures().clear();
 				getFeatures().addAll((Collection<? extends Feature>)newValue);
 				return;
+			case BasicFMmetamodelPackage.FEATURE_MODEL__CROSS_TREE_CONSTRAINTS:
+				getCrossTreeConstraints().clear();
+				getCrossTreeConstraints().addAll((Collection<? extends CrossTreeConstraint>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -252,6 +286,9 @@ public class FeatureModelImpl extends MinimalEObjectImpl.Container implements Fe
 			case BasicFMmetamodelPackage.FEATURE_MODEL__FEATURES:
 				getFeatures().clear();
 				return;
+			case BasicFMmetamodelPackage.FEATURE_MODEL__CROSS_TREE_CONSTRAINTS:
+				getCrossTreeConstraints().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -270,6 +307,8 @@ public class FeatureModelImpl extends MinimalEObjectImpl.Container implements Fe
 				return root != null;
 			case BasicFMmetamodelPackage.FEATURE_MODEL__FEATURES:
 				return features != null && !features.isEmpty();
+			case BasicFMmetamodelPackage.FEATURE_MODEL__CROSS_TREE_CONSTRAINTS:
+				return crossTreeConstraints != null && !crossTreeConstraints.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
