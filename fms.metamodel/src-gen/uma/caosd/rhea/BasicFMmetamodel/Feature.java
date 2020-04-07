@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.Feature#isMandatory <em>Mandatory</em>}</li>
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.Feature#getChildren <em>Children</em>}</li>
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.Feature#getParent <em>Parent</em>}</li>
+ *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.Feature#isSelected <em>Selected</em>}</li>
  * </ul>
  *
  * @see uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage#getFeature()
@@ -130,6 +131,28 @@ public interface Feature extends EObject {
 	 * @generated
 	 */
 	void setParent(Feature value);
+
+	/**
+	 * Returns the value of the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selected</em>' attribute.
+	 * @see #setSelected(boolean)
+	 * @see uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage#getFeature_Selected()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isSelected();
+
+	/**
+	 * Sets the value of the '{@link uma.caosd.rhea.BasicFMmetamodel.Feature#isSelected <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Selected</em>' attribute.
+	 * @see #isSelected()
+	 * @generated
+	 */
+	void setSelected(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

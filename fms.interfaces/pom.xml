@@ -16,8 +16,15 @@
     </plugins>
   </build>
   
+  <repositories>
+	  <repository>
+		  <id>clojars.org</id>
+		  <url>https://repo.clojars.org</url>
+	  </repository>
+  </repositories>
+	
   <dependencies>
-  	<dependency>
+   	<dependency>
   		<groupId>uma.caosd</groupId>
   		<artifactId>rhea.fms.metamodel</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
@@ -32,5 +39,26 @@
   		<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
   		<version>2.16.0</version>
   	</dependency>
+  	<dependency>
+  		<groupId>org.eclipse.emf.henshin</groupId>
+  		<artifactId>henshin</artifactId>
+  		<version>1.4.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.junit.jupiter</groupId>
+  		<artifactId>junit-jupiter-api</artifactId>
+  		<version>5.6.1</version>
+  		<scope>test</scope>
+  	</dependency>
+<!--   	<dependency>
+    	<groupId>org.clafer</groupId>
+    	<artifactId>chocosolver</artifactId>
+    	<version>0.4.4</version>
+	</dependency> -->
+	<dependency>
+	  <groupId>com.google.guava</groupId>
+	  <artifactId>guava</artifactId>
+	  <version>28.2-jre</version>
+	</dependency>
   </dependencies>
 </project>

@@ -23,9 +23,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BasicFMmetamodel.ecore#//Feature/mandatory"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BasicFMmetamodel.ecore#//Feature/children"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BasicFMmetamodel.ecore#//Feature/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BasicFMmetamodel.ecore#//Feature/selected"/>
       <genOperations ecoreOperation="BasicFMmetamodel.ecore#//Feature/isLeaf"/>
       <genOperations ecoreOperation="BasicFMmetamodel.ecore#//Feature/isRoot"/>
     </genClasses>
     <genClasses ecoreClass="BasicFMmetamodel.ecore#//CrossTreeConstraint"/>
+    <genClasses ecoreClass="BasicFMmetamodel.ecore#//Alternative"/>
+    <genClasses ecoreClass="BasicFMmetamodel.ecore#//OrGroup"/>
   </genPackages>
 </genmodel:GenModel>

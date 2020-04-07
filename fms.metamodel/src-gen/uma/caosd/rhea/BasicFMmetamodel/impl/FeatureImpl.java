@@ -37,6 +37,7 @@ import uma.caosd.rhea.BasicFMmetamodel.Feature;
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.impl.FeatureImpl#isMandatory <em>Mandatory</em>}</li>
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.impl.FeatureImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.impl.FeatureImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link uma.caosd.rhea.BasicFMmetamodel.impl.FeatureImpl#isSelected <em>Selected</em>}</li>
  * </ul>
  *
  * @generated
@@ -111,6 +112,26 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 	 * @ordered
 	 */
 	protected EList<Feature> children;
+
+	/**
+	 * The default value of the '{@link #isSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SELECTED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean selected = SELECTED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,6 +271,27 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSelected() {
+		return selected;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelected(boolean newSelected) {
+		boolean oldSelected = selected;
+		selected = newSelected;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BasicFMmetamodelPackage.FEATURE__SELECTED, oldSelected, selected));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isLeaf() {
@@ -332,6 +374,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 				return getChildren();
 			case BasicFMmetamodelPackage.FEATURE__PARENT:
 				return getParent();
+			case BasicFMmetamodelPackage.FEATURE__SELECTED:
+				return isSelected();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -361,6 +405,9 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 			case BasicFMmetamodelPackage.FEATURE__PARENT:
 				setParent((Feature)newValue);
 				return;
+			case BasicFMmetamodelPackage.FEATURE__SELECTED:
+				setSelected((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -388,6 +435,9 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 			case BasicFMmetamodelPackage.FEATURE__PARENT:
 				setParent((Feature)null);
 				return;
+			case BasicFMmetamodelPackage.FEATURE__SELECTED:
+				setSelected(SELECTED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -410,6 +460,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 				return children != null && !children.isEmpty();
 			case BasicFMmetamodelPackage.FEATURE__PARENT:
 				return getParent() != null;
+			case BasicFMmetamodelPackage.FEATURE__SELECTED:
+				return selected != SELECTED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -446,6 +498,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 		result.append(name);
 		result.append(", mandatory: ");
 		result.append(mandatory);
+		result.append(", selected: ");
+		result.append(selected);
 		result.append(')');
 		return result.toString();
 	}

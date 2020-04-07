@@ -40,6 +40,24 @@ public interface BasicFMmetamodelFactory extends EFactory {
 	Feature createFeature();
 
 	/**
+	 * Returns a new object of class '<em>Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alternative</em>'.
+	 * @generated
+	 */
+	Alternative createAlternative();
+
+	/**
+	 * Returns a new object of class '<em>Or Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Or Group</em>'.
+	 * @generated
+	 */
+	OrGroup createOrGroup();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

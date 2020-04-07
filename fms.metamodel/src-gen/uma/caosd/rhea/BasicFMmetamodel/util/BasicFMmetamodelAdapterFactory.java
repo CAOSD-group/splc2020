@@ -80,6 +80,14 @@ public class BasicFMmetamodelAdapterFactory extends AdapterFactoryImpl {
 				return createCrossTreeConstraintAdapter();
 			}
 			@Override
+			public Adapter caseAlternative(Alternative object) {
+				return createAlternativeAdapter();
+			}
+			@Override
+			public Adapter caseOrGroup(OrGroup object) {
+				return createOrGroupAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -138,6 +146,34 @@ public class BasicFMmetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCrossTreeConstraintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link uma.caosd.rhea.BasicFMmetamodel.Alternative <em>Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see uma.caosd.rhea.BasicFMmetamodel.Alternative
+	 * @generated
+	 */
+	public Adapter createAlternativeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link uma.caosd.rhea.BasicFMmetamodel.OrGroup <em>Or Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see uma.caosd.rhea.BasicFMmetamodel.OrGroup
+	 * @generated
+	 */
+	public Adapter createOrGroupAdapter() {
 		return null;
 	}
 

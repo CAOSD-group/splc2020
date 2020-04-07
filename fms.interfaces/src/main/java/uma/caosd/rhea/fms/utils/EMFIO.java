@@ -23,14 +23,14 @@ public class EMFIO {
 		// Create a resource set to hold the resources.
 		ResourceSet resourceSet = new ResourceSetImpl();
 		
-		// Create a new empty resource.
-		Resource resource = resourceSet.createResource(URI.createFileURI(filepath));
-		
 		// Register the appropriate resource factory to handle all file extensions.
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 		
 		// Register the package to make it available during loading.
 		resourceSet.getPackageRegistry().put(metamodel.getNsURI(), metamodel);
+		
+		// Create a new empty resource.
+		Resource resource = resourceSet.createResource(URI.createFileURI(filepath));		
 		
 		// Set options for the resource
 		((XMIResource) resource).getDefaultSaveOptions().put(XMIResource.OPTION_KEEP_DEFAULT_CONTENT, Boolean.TRUE);
@@ -45,14 +45,14 @@ public class EMFIO {
 		// Create a resource set to hold the resources.
 		ResourceSet resourceSet = new ResourceSetImpl();
 		
-		// Demand load the resource into the resource set.
-		Resource resource = resourceSet.getResource(URI.createFileURI(filepath), true);
-		
 		// Register the appropriate resource factory to handle all file extensions.
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-		
+				
 		// Register the package to make it available during loading.
 		resourceSet.getPackageRegistry().put(metamodel.getNsURI(), metamodel);
+						
+		// Demand load the resource into the resource set.
+		Resource resource = resourceSet.getResource(URI.createFileURI(filepath), true);
 				
 		// Extract the root object from the resource.
 		EObject model = resource.getContents().get(0);
@@ -86,15 +86,15 @@ public class EMFIO {
 		// Create a resource set to hold the resources.
 		ResourceSet resourceSet = new ResourceSetImpl();
 		
-		// Demand load the resource into the resource set.
-		Resource resource = resourceSet.getResource(URI.createFileURI(filepath), true);
-		
 		// Register the appropriate resource factory to handle all file extensions. Resource.Factory.Registry.DEFAULT_EXTENSION
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
 		
 		// Register the package to make it available during loading.
 		resourceSet.getPackageRegistry().put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
-				
+		
+		// Demand load the resource into the resource set.
+		Resource resource = resourceSet.getResource(URI.createFileURI(filepath), true);
+		
 		// Extract the root object from the resource.
 		EObject model = resource.getContents().get(0);
 		

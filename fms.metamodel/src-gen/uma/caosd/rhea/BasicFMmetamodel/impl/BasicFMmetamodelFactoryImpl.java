@@ -58,6 +58,8 @@ public class BasicFMmetamodelFactoryImpl extends EFactoryImpl implements BasicFM
 		switch (eClass.getClassifierID()) {
 			case BasicFMmetamodelPackage.FEATURE_MODEL: return createFeatureModel();
 			case BasicFMmetamodelPackage.FEATURE: return createFeature();
+			case BasicFMmetamodelPackage.ALTERNATIVE: return createAlternative();
+			case BasicFMmetamodelPackage.OR_GROUP: return createOrGroup();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -81,6 +83,26 @@ public class BasicFMmetamodelFactoryImpl extends EFactoryImpl implements BasicFM
 	public Feature createFeature() {
 		FeatureImpl feature = new FeatureImpl();
 		return feature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Alternative createAlternative() {
+		AlternativeImpl alternative = new AlternativeImpl();
+		return alternative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OrGroup createOrGroup() {
+		OrGroupImpl orGroup = new OrGroupImpl();
+		return orGroup;
 	}
 
 	/**

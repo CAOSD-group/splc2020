@@ -186,13 +186,22 @@ public interface BasicFMmetamodelPackage extends EPackage {
 	int FEATURE__PARENT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__SELECTED = 5;
+
+	/**
 	 * The number of structural features of the '<em>Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_FEATURE_COUNT = 5;
+	int FEATURE_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Is Leaf</em>' operation.
@@ -248,6 +257,206 @@ public interface BasicFMmetamodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int CROSS_TREE_CONSTRAINT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link uma.caosd.rhea.BasicFMmetamodel.impl.AlternativeImpl <em>Alternative</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see uma.caosd.rhea.BasicFMmetamodel.impl.AlternativeImpl
+	 * @see uma.caosd.rhea.BasicFMmetamodel.impl.BasicFMmetamodelPackageImpl#getAlternative()
+	 * @generated
+	 */
+	int ALTERNATIVE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__ID = FEATURE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__NAME = FEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Mandatory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__MANDATORY = FEATURE__MANDATORY;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__CHILDREN = FEATURE__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__PARENT = FEATURE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__SELECTED = FEATURE__SELECTED;
+
+	/**
+	 * The number of structural features of the '<em>Alternative</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Leaf</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE___IS_LEAF = FEATURE___IS_LEAF;
+
+	/**
+	 * The operation id for the '<em>Is Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE___IS_ROOT = FEATURE___IS_ROOT;
+
+	/**
+	 * The number of operations of the '<em>Alternative</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link uma.caosd.rhea.BasicFMmetamodel.impl.OrGroupImpl <em>Or Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see uma.caosd.rhea.BasicFMmetamodel.impl.OrGroupImpl
+	 * @see uma.caosd.rhea.BasicFMmetamodel.impl.BasicFMmetamodelPackageImpl#getOrGroup()
+	 * @generated
+	 */
+	int OR_GROUP = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP__ID = FEATURE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP__NAME = FEATURE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Mandatory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP__MANDATORY = FEATURE__MANDATORY;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP__CHILDREN = FEATURE__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP__PARENT = FEATURE__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP__SELECTED = FEATURE__SELECTED;
+
+	/**
+	 * The number of structural features of the '<em>Or Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Leaf</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP___IS_LEAF = FEATURE___IS_LEAF;
+
+	/**
+	 * The operation id for the '<em>Is Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP___IS_ROOT = FEATURE___IS_ROOT;
+
+	/**
+	 * The number of operations of the '<em>Or Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_GROUP_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -380,6 +589,17 @@ public interface BasicFMmetamodelPackage extends EPackage {
 	EReference getFeature_Parent();
 
 	/**
+	 * Returns the meta object for the attribute '{@link uma.caosd.rhea.BasicFMmetamodel.Feature#isSelected <em>Selected</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selected</em>'.
+	 * @see uma.caosd.rhea.BasicFMmetamodel.Feature#isSelected()
+	 * @see #getFeature()
+	 * @generated
+	 */
+	EAttribute getFeature_Selected();
+
+	/**
 	 * Returns the meta object for the '{@link uma.caosd.rhea.BasicFMmetamodel.Feature#isLeaf() <em>Is Leaf</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -408,6 +628,26 @@ public interface BasicFMmetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCrossTreeConstraint();
+
+	/**
+	 * Returns the meta object for class '{@link uma.caosd.rhea.BasicFMmetamodel.Alternative <em>Alternative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Alternative</em>'.
+	 * @see uma.caosd.rhea.BasicFMmetamodel.Alternative
+	 * @generated
+	 */
+	EClass getAlternative();
+
+	/**
+	 * Returns the meta object for class '{@link uma.caosd.rhea.BasicFMmetamodel.OrGroup <em>Or Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Or Group</em>'.
+	 * @see uma.caosd.rhea.BasicFMmetamodel.OrGroup
+	 * @generated
+	 */
+	EClass getOrGroup();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -533,6 +773,14 @@ public interface BasicFMmetamodelPackage extends EPackage {
 		EReference FEATURE__PARENT = eINSTANCE.getFeature_Parent();
 
 		/**
+		 * The meta object literal for the '<em><b>Selected</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FEATURE__SELECTED = eINSTANCE.getFeature_Selected();
+
+		/**
 		 * The meta object literal for the '<em><b>Is Leaf</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -557,6 +805,26 @@ public interface BasicFMmetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CROSS_TREE_CONSTRAINT = eINSTANCE.getCrossTreeConstraint();
+
+		/**
+		 * The meta object literal for the '{@link uma.caosd.rhea.BasicFMmetamodel.impl.AlternativeImpl <em>Alternative</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see uma.caosd.rhea.BasicFMmetamodel.impl.AlternativeImpl
+		 * @see uma.caosd.rhea.BasicFMmetamodel.impl.BasicFMmetamodelPackageImpl#getAlternative()
+		 * @generated
+		 */
+		EClass ALTERNATIVE = eINSTANCE.getAlternative();
+
+		/**
+		 * The meta object literal for the '{@link uma.caosd.rhea.BasicFMmetamodel.impl.OrGroupImpl <em>Or Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see uma.caosd.rhea.BasicFMmetamodel.impl.OrGroupImpl
+		 * @see uma.caosd.rhea.BasicFMmetamodel.impl.BasicFMmetamodelPackageImpl#getOrGroup()
+		 * @generated
+		 */
+		EClass OR_GROUP = eINSTANCE.getOrGroup();
 
 	}
 

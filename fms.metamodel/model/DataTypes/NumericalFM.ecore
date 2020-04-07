@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="NumericalFMs" nsURI="NumericalFMs" nsPrefix="NumericalFMs">
+  <eClassifiers xsi:type="ecore:EClass" name="NumericalFM" eSuperTypes="../BasicFMmetamodel.ecore#//FeatureModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numericalfeatures" upperBound="-1"
+        eType="#//NumericalFeature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumericalFeature" eSuperTypes="DataTypes.ecore#//TypedFeature"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Integer" instanceClassName="java.lang.Integer"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="NewDataType2" instanceTypeName="newDataType2"/>
+</ecore:EPackage>

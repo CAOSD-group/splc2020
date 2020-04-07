@@ -10,11 +10,13 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import uma.caosd.rhea.BasicFMmetamodel.Alternative;
 import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelFactory;
 import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage;
 import uma.caosd.rhea.BasicFMmetamodel.CrossTreeConstraint;
 import uma.caosd.rhea.BasicFMmetamodel.Feature;
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
+import uma.caosd.rhea.BasicFMmetamodel.OrGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +45,20 @@ public class BasicFMmetamodelPackageImpl extends EPackageImpl implements BasicFM
 	 * @generated
 	 */
 	private EClass crossTreeConstraintEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass alternativeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass orGroupEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -218,6 +234,15 @@ public class BasicFMmetamodelPackageImpl extends EPackageImpl implements BasicFM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFeature_Selected() {
+		return (EAttribute)featureEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getFeature__IsLeaf() {
 		return featureEClass.getEOperations().get(0);
 	}
@@ -238,6 +263,24 @@ public class BasicFMmetamodelPackageImpl extends EPackageImpl implements BasicFM
 	 */
 	public EClass getCrossTreeConstraint() {
 		return crossTreeConstraintEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAlternative() {
+		return alternativeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOrGroup() {
+		return orGroupEClass;
 	}
 
 	/**
@@ -281,10 +324,15 @@ public class BasicFMmetamodelPackageImpl extends EPackageImpl implements BasicFM
 		createEAttribute(featureEClass, FEATURE__MANDATORY);
 		createEReference(featureEClass, FEATURE__CHILDREN);
 		createEReference(featureEClass, FEATURE__PARENT);
+		createEAttribute(featureEClass, FEATURE__SELECTED);
 		createEOperation(featureEClass, FEATURE___IS_LEAF);
 		createEOperation(featureEClass, FEATURE___IS_ROOT);
 
 		crossTreeConstraintEClass = createEClass(CROSS_TREE_CONSTRAINT);
+
+		alternativeEClass = createEClass(ALTERNATIVE);
+
+		orGroupEClass = createEClass(OR_GROUP);
 	}
 
 	/**
@@ -315,6 +363,8 @@ public class BasicFMmetamodelPackageImpl extends EPackageImpl implements BasicFM
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		alternativeEClass.getESuperTypes().add(this.getFeature());
+		orGroupEClass.getESuperTypes().add(this.getFeature());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(featureModelEClass, FeatureModel.class, "FeatureModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -332,12 +382,17 @@ public class BasicFMmetamodelPackageImpl extends EPackageImpl implements BasicFM
 		initEAttribute(getFeature_Mandatory(), ecorePackage.getEBoolean(), "mandatory", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFeature_Children(), this.getFeature(), this.getFeature_Parent(), "children", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFeature_Parent(), this.getFeature(), this.getFeature_Children(), "parent", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFeature_Selected(), ecorePackage.getEBoolean(), "selected", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getFeature__IsLeaf(), ecorePackage.getEBoolean(), "isLeaf", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getFeature__IsRoot(), ecorePackage.getEBoolean(), "isRoot", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(crossTreeConstraintEClass, CrossTreeConstraint.class, "CrossTreeConstraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(alternativeEClass, Alternative.class, "Alternative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(orGroupEClass, OrGroup.class, "OrGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

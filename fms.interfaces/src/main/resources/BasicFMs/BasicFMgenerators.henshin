@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NF8NoHc4Eeqxi8M7JtBkcg">
+  <imports href="http://caosd.lcc.uma.es/BasicFMmetamodel#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_N5xeUHc4Eeqxi8M7JtBkcg" name="RootGen">
+    <parameters xmi:id="_PK5vAHc4Eeqxi8M7JtBkcg" name="name" kind="IN">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_N51vwHc4Eeqxi8M7JtBkcg" name="Lhs">
+      <nodes xmi:id="_P51RkHc4Eeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_Ac_vIndDEeqxi8M7JtBkcg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_Ac_vI3dDEeqxi8M7JtBkcg">
+          <conclusion xmi:id="_Ac_vJHdDEeqxi8M7JtBkcg">
+            <nodes xmi:id="_Ac_vJXdDEeqxi8M7JtBkcg" outgoing="_BBs-sHdDEeqxi8M7JtBkcg">
+              <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
+            </nodes>
+            <nodes xmi:id="_Ac958HdDEeqxi8M7JtBkcg" incoming="_BBs-sHdDEeqxi8M7JtBkcg">
+              <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+            </nodes>
+            <edges xmi:id="_BBs-sHdDEeqxi8M7JtBkcg" source="_Ac_vJXdDEeqxi8M7JtBkcg" target="_Ac958HdDEeqxi8M7JtBkcg">
+              <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel/root"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_Ac_vJndDEeqxi8M7JtBkcg" origin="_P51RkHc4Eeqxi8M7JtBkcg" image="_Ac_vJXdDEeqxi8M7JtBkcg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_N51vwXc4Eeqxi8M7JtBkcg" name="Rhs">
+      <nodes xmi:id="_P51RkXc4Eeqxi8M7JtBkcg" outgoing="_Q_TE0Hc4Eeqxi8M7JtBkcg _RMt1wHc4Eeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
+      </nodes>
+      <nodes xmi:id="_Qi4OkHc4Eeqxi8M7JtBkcg" incoming="_Q_TE0Hc4Eeqxi8M7JtBkcg _RMt1wHc4Eeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+        <attributes xmi:id="_R02z0Hc4Eeqxi8M7JtBkcg" value="&quot;F&quot; + java.util.UUID.randomUUID().hashCode();">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/id"/>
+        </attributes>
+        <attributes xmi:id="_SN7bIHc4Eeqxi8M7JtBkcg" value="name">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+        </attributes>
+        <attributes xmi:id="_Spy3wHc4Eeqxi8M7JtBkcg" value="true">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/mandatory"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_Q_TE0Hc4Eeqxi8M7JtBkcg" source="_P51RkXc4Eeqxi8M7JtBkcg" target="_Qi4OkHc4Eeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel/root"/>
+      </edges>
+      <edges xmi:id="_RMt1wHc4Eeqxi8M7JtBkcg" source="_P51RkXc4Eeqxi8M7JtBkcg" target="_Qi4OkHc4Eeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel/features"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_P51Rknc4Eeqxi8M7JtBkcg" origin="_P51RkHc4Eeqxi8M7JtBkcg" image="_P51RkXc4Eeqxi8M7JtBkcg"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_C9CqAHdDEeqxi8M7JtBkcg" name="MandatoryFeatureGen">
+    <parameters xmi:id="_ErnEoHdDEeqxi8M7JtBkcg" name="name" kind="IN">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_yn9uoHdmEeqxi8M7JtBkcg" name="parentName" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_C9EfMHdDEeqxi8M7JtBkcg" name="Lhs">
+      <nodes xmi:id="_gkFkYHdkEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
+      </nodes>
+      <nodes xmi:id="_FkqMgHdDEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+        <attributes xmi:id="_vBBdIHdmEeqxi8M7JtBkcg" value="parentName">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_OMhaMndDEeqxi8M7JtBkcg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_OMhaM3dDEeqxi8M7JtBkcg">
+          <conclusion xmi:id="_OMhaNHdDEeqxi8M7JtBkcg">
+            <nodes xmi:id="_OMgzIHdDEeqxi8M7JtBkcg">
+              <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+              <attributes xmi:id="_PVaU4HdDEeqxi8M7JtBkcg" value="name">
+                <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_gkIAondkEeqxi8M7JtBkcg">
+              <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
+            </nodes>
+            <nodes xmi:id="_tOvnMndmEeqxi8M7JtBkcg">
+              <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+              <attributes xmi:id="_vBDSUXdmEeqxi8M7JtBkcg" value="parentName">
+                <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+              </attributes>
+            </nodes>
+          </conclusion>
+          <mappings xmi:id="_gkIAo3dkEeqxi8M7JtBkcg" origin="_gkFkYHdkEeqxi8M7JtBkcg" image="_gkIAondkEeqxi8M7JtBkcg"/>
+          <mappings xmi:id="_tOvnM3dmEeqxi8M7JtBkcg" origin="_FkqMgHdDEeqxi8M7JtBkcg" image="_tOvnMndmEeqxi8M7JtBkcg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_C9EfMXdDEeqxi8M7JtBkcg" name="Rhs">
+      <nodes xmi:id="_GHkFQHdDEeqxi8M7JtBkcg" incoming="_hEVKsHdkEeqxi8M7JtBkcg _tyIoIHdmEeqxi8M7JtBkcg" outgoing="_t_JwcHdmEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+        <attributes xmi:id="_HmjLwHdDEeqxi8M7JtBkcg" value="name">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/id"/>
+        </attributes>
+        <attributes xmi:id="_H3yFsHdDEeqxi8M7JtBkcg" value="name">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+        </attributes>
+        <attributes xmi:id="_ITo7QHdDEeqxi8M7JtBkcg" value="true">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/mandatory"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_gkIAoHdkEeqxi8M7JtBkcg" outgoing="_hEVKsHdkEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
+      </nodes>
+      <nodes xmi:id="_tOvnMHdmEeqxi8M7JtBkcg" incoming="_t_JwcHdmEeqxi8M7JtBkcg" outgoing="_tyIoIHdmEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+        <attributes xmi:id="_vBDSUHdmEeqxi8M7JtBkcg" value="parentName">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_hEVKsHdkEeqxi8M7JtBkcg" source="_gkIAoHdkEeqxi8M7JtBkcg" target="_GHkFQHdDEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel/features"/>
+      </edges>
+      <edges xmi:id="_tyIoIHdmEeqxi8M7JtBkcg" source="_tOvnMHdmEeqxi8M7JtBkcg" target="_GHkFQHdDEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/children"/>
+      </edges>
+      <edges xmi:id="_t_JwcHdmEeqxi8M7JtBkcg" source="_GHkFQHdDEeqxi8M7JtBkcg" target="_tOvnMHdmEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/parent"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_zG34MHdmEeqxi8M7JtBkcg" name="distinct Features" conditionText="name != parentName"/>
+    <mappings xmi:id="_gkIAoXdkEeqxi8M7JtBkcg" origin="_gkFkYHdkEeqxi8M7JtBkcg" image="_gkIAoHdkEeqxi8M7JtBkcg"/>
+    <mappings xmi:id="_tOvnMXdmEeqxi8M7JtBkcg" origin="_FkqMgHdDEeqxi8M7JtBkcg" image="_tOvnMHdmEeqxi8M7JtBkcg"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_QxTEEHdDEeqxi8M7JtBkcg" name="OptionalFeatureGen">
+    <parameters xmi:id="_SclhMHdDEeqxi8M7JtBkcg" name="name" kind="IN">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_8lGGIHdmEeqxi8M7JtBkcg" name="parentName" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_QxWHYHdDEeqxi8M7JtBkcg" name="Lhs">
+      <nodes xmi:id="_TCylkHdDEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+        <attributes xmi:id="_9Jt2IHdmEeqxi8M7JtBkcg" value="parentName">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_i8-uYHdkEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_UtE9I3dDEeqxi8M7JtBkcg">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_UtE9JHdDEeqxi8M7JtBkcg">
+          <conclusion xmi:id="_UtE9JXdDEeqxi8M7JtBkcg">
+            <nodes xmi:id="_UtE9JndDEeqxi8M7JtBkcg">
+              <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+              <attributes xmi:id="_9Jt2IndmEeqxi8M7JtBkcg" value="parentName">
+                <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_UtE9IHdDEeqxi8M7JtBkcg">
+              <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+              <attributes xmi:id="_XkUQAHdDEeqxi8M7JtBkcg" value="name">
+                <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_i8-uY3dkEeqxi8M7JtBkcg">
+              <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
+            </nodes>
+          </conclusion>
+          <mappings xmi:id="_UtE9J3dDEeqxi8M7JtBkcg" origin="_TCylkHdDEeqxi8M7JtBkcg" image="_UtE9JndDEeqxi8M7JtBkcg"/>
+          <mappings xmi:id="_i8-uZHdkEeqxi8M7JtBkcg" origin="_i8-uYHdkEeqxi8M7JtBkcg" image="_i8-uY3dkEeqxi8M7JtBkcg"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_QxWHYXdDEeqxi8M7JtBkcg" name="Rhs">
+      <nodes xmi:id="_TCylkXdDEeqxi8M7JtBkcg" incoming="_VgBdAHdDEeqxi8M7JtBkcg" outgoing="_VQH_0HdDEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+        <attributes xmi:id="_9Jt2IXdmEeqxi8M7JtBkcg" value="parentName">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_T9xAEHdDEeqxi8M7JtBkcg" incoming="_VQH_0HdDEeqxi8M7JtBkcg _jWv5QHdkEeqxi8M7JtBkcg" outgoing="_VgBdAHdDEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
+        <attributes xmi:id="_WL2oQHdDEeqxi8M7JtBkcg" value="name">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/id"/>
+        </attributes>
+        <attributes xmi:id="_WkULkHdDEeqxi8M7JtBkcg" value="name">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+        </attributes>
+        <attributes xmi:id="_W3g0YHdDEeqxi8M7JtBkcg" value="false">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/mandatory"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_i8-uYXdkEeqxi8M7JtBkcg" outgoing="_jWv5QHdkEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
+      </nodes>
+      <edges xmi:id="_VQH_0HdDEeqxi8M7JtBkcg" source="_TCylkXdDEeqxi8M7JtBkcg" target="_T9xAEHdDEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/children"/>
+      </edges>
+      <edges xmi:id="_VgBdAHdDEeqxi8M7JtBkcg" source="_T9xAEHdDEeqxi8M7JtBkcg" target="_TCylkXdDEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/parent"/>
+      </edges>
+      <edges xmi:id="_jWv5QHdkEeqxi8M7JtBkcg" source="_i8-uYXdkEeqxi8M7JtBkcg" target="_T9xAEHdDEeqxi8M7JtBkcg">
+        <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel/features"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_-VmacHdmEeqxi8M7JtBkcg" name="distinct Features" conditionText="name!=parentName"/>
+    <mappings xmi:id="_TCylkndDEeqxi8M7JtBkcg" origin="_TCylkHdDEeqxi8M7JtBkcg" image="_TCylkXdDEeqxi8M7JtBkcg"/>
+    <mappings xmi:id="_i8-uYndkEeqxi8M7JtBkcg" origin="_i8-uYHdkEeqxi8M7JtBkcg" image="_i8-uYXdkEeqxi8M7JtBkcg"/>
+  </units>
+</henshin:Module>

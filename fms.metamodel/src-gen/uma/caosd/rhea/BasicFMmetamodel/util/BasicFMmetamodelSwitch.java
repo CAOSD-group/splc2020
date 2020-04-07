@@ -84,6 +84,20 @@ public class BasicFMmetamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BasicFMmetamodelPackage.ALTERNATIVE: {
+				Alternative alternative = (Alternative)theEObject;
+				T result = caseAlternative(alternative);
+				if (result == null) result = caseFeature(alternative);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BasicFMmetamodelPackage.OR_GROUP: {
+				OrGroup orGroup = (OrGroup)theEObject;
+				T result = caseOrGroup(orGroup);
+				if (result == null) result = caseFeature(orGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -130,6 +144,36 @@ public class BasicFMmetamodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCrossTreeConstraint(CrossTreeConstraint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Alternative</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Alternative</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAlternative(Alternative object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Or Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Or Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrGroup(OrGroup object) {
 		return null;
 	}
 
