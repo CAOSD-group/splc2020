@@ -1,6 +1,7 @@
 package uma.caosd.rhea.fms.generators.tests;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
 
 import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage;
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
@@ -22,13 +25,15 @@ import uma.caosd.rhea.fms.utils.HenshinHelper;
 public class BasicFMsTests {
 	public static final EPackage METAMODEL = BasicFMmetamodelPackage.eINSTANCE;
 	public static final String BASE_DIR = "src/test/resources/BasicFMs/";
-	public static final String MODELS = BASE_DIR + "fms/";
-	public static final String EXPECTED_MODELS = BASE_DIR + "expected/";
+	public static final String FMS_PATH = BASE_DIR + "fms/";
+	public static final String EXPECTED_FMS_PATH = BASE_DIR + "expected/";
 	public static final String GENERATED_MODELS = BASE_DIR + "generated/";
+	
+	public static final String FMS_DIR = "fms/";
+	public static final String EXPECTED_FMS_DIR = "expected/";
 	
 	public static final String METAMODEL_FILEPATH = BASE_DIR + "BasicFMmetamodel.ecore";
 	public static final String GENERATORS_PATH = "BasicFMgenerators.henshin"; 
-	
 	
 	/**
 	 * Test the empty generator.
@@ -38,7 +43,7 @@ public class BasicFMsTests {
 	public void emptyFeatureModelDynamic() throws IOException {
 		String featureModelName = "fm";
 		String fmFilepath = GENERATED_MODELS + "fm_dynamic.xmi";
-		String fmExpectedFilepath = EXPECTED_MODELS + "fm.xmi";
+		String fmExpectedFilepath = EXPECTED_FMS_PATH + "fm.xmi";
 		//String metamodelFilepath = BASE_DIR + "BasicFMmetamodel.ecore";
 		
 		// Load metamodel
@@ -70,7 +75,7 @@ public class BasicFMsTests {
 	public void emptyFeatureModelStatic() throws IOException {
 		String featureModelName = "fm";
 		String fmFilepath = GENERATED_MODELS + "fm_static.xmi";
-		String fmExpectedFilepath = EXPECTED_MODELS + "fm.xmi";
+		String fmExpectedFilepath = EXPECTED_FMS_PATH + "fm.xmi";
 		//String metamodelFilepath = BASE_DIR + "BasicFMmetamodel.ecore";
 		
 		EPackage metamodel = METAMODEL;
@@ -91,111 +96,126 @@ public class BasicFMsTests {
 		Assertions.assertTrue(EcoreUtil.equals(fm, fmExpected));
 	}
 	
-	/**
-	 * Test the RootGen generator.
-	 */
-	@Test
-	public void rootGen() {
+	@TestFactory
+	List<DynamicTest> testGenerationFMs_RootGen() {
+		List<String> expectedFMs = List.of("fm_RootGen.xmi");
+		String generatorName = "RootGen";
 		String featureName = "Root";
-		String fmFilepath = "fms/fm.xmi";
-		String fmExpectedFilepath = EXPECTED_MODELS + "fm_RootGen.xmi";
-		
-		Map<String, String> parameters = new HashMap<String, String>();
-		parameters.put("name", featureName);
-		
-		HenshinHelper henshin = new HenshinHelper(BASE_DIR);
-		List<EObject> fms = henshin.executeRuleForAllMatches(GENERATORS_PATH, "RootGen", parameters, fmFilepath);
-		
-		// Load expected feature model
-		EObject fmExpected = EMFIO.loadModel(METAMODEL, fmExpectedFilepath);
-		
-		Assertions.assertTrue(EcoreUtil.equals(fms.get(0), fmExpected));
+		String sourceFM = "fm.xmi";
+	
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		return tests;
 	}
 	
-	/**
-	 * Test the double application of the RootGen generator.
-	 */
-	@Test
-	public void rootGen2() {
-		String featureName = "Root";
-		String fmFilepath = "fms/fm_RootGen.xmi";
-		
-		Map<String, String> parameters = new HashMap<String, String>();
-		parameters.put("name", featureName);
-		
-		HenshinHelper henshin = new HenshinHelper(BASE_DIR);
-		List<EObject> fms = henshin.executeRuleForAllMatches(GENERATORS_PATH, "RootGen", parameters, fmFilepath);
-		
-		Assertions.assertTrue(fms.isEmpty());
-	}
-	
-	/**
-	 * Test the MandatoryFeatureGen over the root.
-	 */
-	@Test
-	public void mandatoryFeatureGenA() {
+	@TestFactory
+	List<DynamicTest> testGenerationFMs_MandatoryFeatureA() {
+		List<String> expectedFMs = List.of("fm_MandatoryFeatureGen_A.xmi");
+		String generatorName = "MandatoryFeatureGen";
 		String featureName = "A";
-		String fmFilepath = "fms/fm_RootGen.xmi";
-		String fmExpectedFilepath = EXPECTED_MODELS + "fm_MandatoryFeatureGen_A.xmi";
-		
-		Map<String, String> parameters = new HashMap<String, String>();
-		parameters.put("name", featureName);
-		
-		HenshinHelper henshin = new HenshinHelper(BASE_DIR);
-		List<EObject> fms = henshin.executeRuleForAllMatches(GENERATORS_PATH, "MandatoryFeatureGen", parameters, fmFilepath);
-		
-		// Load feature models
-		FeatureModel fmExpected = (FeatureModel) EMFIO.loadModel(METAMODEL, fmExpectedFilepath);	
-				
-		Assertions.assertTrue(EcoreUtil.equals(fms.get(0), fmExpected));
+		String sourceFM = "fm_RootGen.xmi";
+	
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		return tests;
 	}
 	
-	/**
-	 * Test the double application of MandatoryFeatureGen.
-	 */
-	@Test
-	public void mandatoryFeatureGenA2() {
-		String featureName = "A";
-		String fmFilepath = "fms/fm_MandatoryFeatureGen_A.xmi";
-		
-		Map<String, String> parameters = new HashMap<String, String>();
-		parameters.put("name", featureName);
-		
-		HenshinHelper henshin = new HenshinHelper(BASE_DIR);
-		List<EObject> fms = henshin.executeRuleForAllMatches(GENERATORS_PATH, "MandatoryFeatureGen", parameters, fmFilepath);
-				
-		Assertions.assertTrue(fms.isEmpty());
-	}
-	
-	
-	/**
-	 * Test the MandatoryFeatureGen over the root and other feature.
-	 * @throws IOException 
-	 */
-	@Test
-	public void mandatoryFeatureGenB() throws IOException {
+	@TestFactory
+	List<DynamicTest> testGenerationFMs_MandatoryFeatureB() {
+		List<String> expectedFMs = List.of("fm_MandatoryFeatureGen_B1.xmi", "fm_MandatoryFeatureGen_B2.xmi");
+		String generatorName = "MandatoryFeatureGen";
 		String featureName = "B";
-		String fmFilepath = "fms/fm_MandatoryFeatureGen_A.xmi";
-		String fmExpectedFilepath1 = EXPECTED_MODELS + "fm_MandatoryFeatureGen_B1.xmi";
-		String fmExpectedFilepath2 = EXPECTED_MODELS + "fm_MandatoryFeatureGen_B2.xmi";
-		
+		String sourceFM = "fm_MandatoryFeatureGen_A.xmi";
+	
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		return tests;
+	}
+	
+	@TestFactory
+	List<DynamicTest> testGenerationFMs_OptionalFeatureA() {
+		List<String> expectedFMs = List.of("fm_OptionalFeatureGen_A.xmi");
+		String generatorName = "OptionalFeatureGen";
+		String featureName = "A";
+		String sourceFM = "fm_RootGen.xmi";
+	
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		return tests;
+	}
+	
+	@TestFactory
+	List<DynamicTest> testGenerationFMs_OptionalFeatureB() {
+		List<String> expectedFMs = List.of("fm_OptionalFeatureGen_B1.xmi", "fm_OptionalFeatureGen_B2.xmi");
+		String generatorName = "OptionalFeatureGen";
+		String featureName = "B";
+		String sourceFM = "fm_MandatoryFeatureGen_A.xmi";
+	
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		return tests;
+	}
+	
+	/**
+	 * Generate dynamic tests for the application of the generators for language constructs.
+	 * 
+	 * @param expectedFMs
+	 * @param generator
+	 * @param featureName
+	 * @param sourceFM
+	 * @return
+	 */
+	private List<DynamicTest> genDynamicTestsForGeneratorApplication(List<String> expectedFMs, String generator, String featureName, String sourceFM) {
 		Map<String, String> parameters = new HashMap<String, String>();
 		parameters.put("name", featureName);
 		
 		HenshinHelper henshin = new HenshinHelper(BASE_DIR);
-		List<EObject> fms = henshin.executeRuleForAllMatches(GENERATORS_PATH, "MandatoryFeatureGen", parameters, fmFilepath);
+		List<EObject> resultFMs = henshin.executeRuleForAllMatches(GENERATORS_PATH, generator, parameters, FMS_DIR + sourceFM);
 		
-		EMFIO.saveModel(fms.get(0), METAMODEL, GENERATED_MODELS + "fm_MandatoryFeatureGen_B1_1.xmi");
-		EMFIO.saveModel(fms.get(1), METAMODEL, GENERATED_MODELS + "fm_MandatoryFeatureGen_B1_2.xmi");
+		List<FeatureModel> expectedFMsLoaded = new ArrayList<FeatureModel>();
+		for (String filepath : expectedFMs) {
+			expectedFMsLoaded.add((FeatureModel) EMFIO.loadModel(METAMODEL, EXPECTED_FMS_PATH + filepath));
+		}
 		
-		// Load feature models
-		FeatureModel fmExpected1 = (FeatureModel) EMFIO.loadModel(METAMODEL, fmExpectedFilepath1);
-		FeatureModel fmExpected2 = (FeatureModel) EMFIO.loadModel(METAMODEL, fmExpectedFilepath2);
-			
-		Assertions.assertTrue(fms.size() == 2);
-		Assertions.assertFalse(EcoreUtil.equals(fms.get(0), fms.get(1)));
-		Assertions.assertTrue(EcoreUtil.equals(fms.get(0), fmExpected1));
-		Assertions.assertTrue(EcoreUtil.equals(fms.get(1), fmExpected2));
+		// The tests
+		List<DynamicTest> list = new ArrayList<DynamicTest>();
+		
+		// Correct numbers of feature models generated
+		list.add(DynamicTest.dynamicTest("Number of FMs", () -> Assertions.assertTrue(resultFMs.size() == expectedFMs.size())));
+		
+		// All feature models are distinct
+		list.add(DynamicTest.dynamicTest("Distinct FMs", () -> Assertions.assertTrue(resultFMs.stream().allMatch(fm -> (resultFMs.stream().filter(fm2 -> !fm.equals(fm2)).count()) == resultFMs.size()-1))));
+		
+		// All feature models are the expected one
+		for (FeatureModel fm : expectedFMsLoaded) {
+			list.add(DynamicTest.dynamicTest("Expected FM " + fm.eResource(), () -> Assertions.assertTrue(resultFMs.stream().anyMatch(fm2 -> EcoreUtil.equals(fm, fm2)))));
+		}
+		//list.add(DynamicTest.dynamicTest("Expected FMs", () -> Assertions.assertTrue(resultFMs.stream().allMatch(fm -> (expectedFMsLoaded.stream().anyMatch(fm2 -> EcoreUtil.equals(fm, fm2)))))));
+		
+		return list;
+	}
+	
+	/**
+	 * Generate dynamic tests for the double (incorrect) application of the generators.
+	 * 
+	 * @param generator
+	 * @param featureName
+	 * @param sourceFMs
+	 * @return
+	 */
+	private List<DynamicTest> genDynamicTestForGeneratorApplicationWithoutResults(String generator, String featureName, List<String> sourceFMs) {
+		Map<String, String> parameters = new HashMap<String, String>();
+		parameters.put("name", featureName);
+		
+		HenshinHelper henshin = new HenshinHelper(BASE_DIR);
+		
+		// The tests
+		List<DynamicTest> list = new ArrayList<DynamicTest>();
+		for (String filepath : sourceFMs) {
+			List<EObject> resultFMs = henshin.executeRuleForAllMatches(GENERATORS_PATH, generator, parameters, FMS_DIR + filepath);
+			list.add(DynamicTest.dynamicTest("Double application in FM " + filepath, () -> Assertions.assertTrue(resultFMs.isEmpty())));
+		}
+		return list;
 	}
 }
 

@@ -152,6 +152,10 @@
             <element xmi:type="henshin:Attribute" href="BasicFMgenerators.henshin#_9Jt2IHdmEeqxi8M7JtBkcg"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_9JxggXdmEeqxi8M7JtBkcg"/>
           </children>
+          <children xmi:type="notation:Node" xmi:id="_iPRtoH_lEeq_IJ3DdcJipQ" type="3002">
+            <element xmi:type="henshin:Attribute" href="BasicFMgenerators.henshin#_iPKY4H_lEeq_IJ3DdcJipQ"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iPRtoX_lEeq_IJ3DdcJipQ"/>
+          </children>
           <styles xmi:type="notation:SortingStyle" xmi:id="_TC1B1XdDEeqxi8M7JtBkcg"/>
           <styles xmi:type="notation:FilteringStyle" xmi:id="_TC1B1ndDEeqxi8M7JtBkcg"/>
         </children>

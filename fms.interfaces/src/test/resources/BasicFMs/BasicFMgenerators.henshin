@@ -156,6 +156,9 @@
         <attributes xmi:id="_9Jt2IHdmEeqxi8M7JtBkcg" value="parentName">
           <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
         </attributes>
+        <attributes xmi:id="_iPKY4H_lEeq_IJ3DdcJipQ" value="parentName">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/id"/>
+        </attributes>
       </nodes>
       <nodes xmi:id="_i8-uYHdkEeqxi8M7JtBkcg">
         <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//FeatureModel"/>
@@ -167,6 +170,9 @@
               <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
               <attributes xmi:id="_9Jt2IndmEeqxi8M7JtBkcg" value="parentName">
                 <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+              </attributes>
+              <attributes xmi:id="_iPMOEX_lEeq_IJ3DdcJipQ" value="parentName">
+                <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/id"/>
               </attributes>
             </nodes>
             <nodes xmi:id="_UtE9IHdDEeqxi8M7JtBkcg">
@@ -192,6 +198,9 @@
         <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature"/>
         <attributes xmi:id="_9Jt2IXdmEeqxi8M7JtBkcg" value="parentName">
           <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/name"/>
+        </attributes>
+        <attributes xmi:id="_iPMOEH_lEeq_IJ3DdcJipQ" value="parentName">
+          <type href="http://caosd.lcc.uma.es/BasicFMmetamodel#//Feature/id"/>
         </attributes>
       </nodes>
       <nodes xmi:id="_T9xAEHdDEeqxi8M7JtBkcg" incoming="_VQH_0HdDEeqxi8M7JtBkcg _jWv5QHdkEeqxi8M7JtBkcg" outgoing="_VgBdAHdDEeqxi8M7JtBkcg">
