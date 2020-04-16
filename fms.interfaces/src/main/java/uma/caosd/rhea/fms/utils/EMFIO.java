@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
+
 /**
  * Input/ouput (serialization) for EMF models (.xmi) and metamodels (.ecore).
  * 

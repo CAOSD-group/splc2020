@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<BasicFMmetamodel:FeatureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BasicFMmetamodel="http://caosd.lcc.uma.es/BasicFMmetamodel" name="fm1" features="//@root">
+  <root xsi:type="BasicFMmetamodel:Alternative" id="ROOT" name="ROOT">
+    <children id="A2" name="A2"/>
+    <children id="A" name="A">
+      <children id="B" name="B"/>
+      <children id="C" name="C"/>
+    </children>
+  </root>
+</BasicFMmetamodel:FeatureModel>

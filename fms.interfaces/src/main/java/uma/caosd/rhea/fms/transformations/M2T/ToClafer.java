@@ -11,6 +11,12 @@ import uma.caosd.rhea.BasicFMmetamodel.Feature;
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
 import uma.caosd.rhea.BasicFMmetamodel.OrGroup;
 
+/**
+ * Transform a feature model to a Clafer model.
+ * 
+ * @author Jose-Miguel Horcas
+ *
+ */
 public class ToClafer {
 	public static final String TAB = "\t";
 	private String fmName;	
