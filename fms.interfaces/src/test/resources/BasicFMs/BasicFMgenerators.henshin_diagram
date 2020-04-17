@@ -124,7 +124,7 @@
           <styles xmi:type="notation:FilteringStyle" xmi:id="_5rAUJH8oEeqLlvFmZ5C3Qw"/>
         </children>
         <element xmi:type="henshin:Node" href="BasicFMgenerators.henshin#_5q3KMH8oEeqLlvFmZ5C3Qw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5q_tEX8oEeqLlvFmZ5C3Qw" x="258" y="11"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5q_tEX8oEeqLlvFmZ5C3Qw" x="293" y="11"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_wAkg0H_FEeq_IJ3DdcJipQ" type="3005">
         <children xmi:type="notation:DecorationNode" xmi:id="_wAkg1H_FEeq_IJ3DdcJipQ" type="5006"/>

@@ -27,10 +27,11 @@ public class BasicFMsTests {
 	public static final String BASE_DIR = "src/test/resources/BasicFMs/";
 	public static final String FMS_PATH = BASE_DIR + "fms/";
 	public static final String EXPECTED_FMS_PATH = BASE_DIR + "expected/";
-	public static final String GENERATED_MODELS = BASE_DIR + "generated/";
+	public static final String GENERATED_FMS_PATH = BASE_DIR + "generated/";
 	
 	public static final String FMS_DIR = "fms/";
 	public static final String EXPECTED_FMS_DIR = "expected/";
+	public static final String GENERATORS_DIR = "generators/";
 	
 	public static final String METAMODEL_FILEPATH = BASE_DIR + "BasicFMmetamodel.ecore";
 	public static final String GENERATORS_PATH = "BasicFMgenerators.henshin"; 
@@ -42,7 +43,7 @@ public class BasicFMsTests {
 	@Test
 	public void emptyFeatureModelDynamic() throws IOException {
 		String featureModelName = "fm";
-		String fmFilepath = GENERATED_MODELS + "fm_dynamic.xmi";
+		String fmFilepath = GENERATED_FMS_PATH + "fm_dynamic.xmi";
 		String fmExpectedFilepath = EXPECTED_FMS_PATH + "fm.xmi";
 		//String metamodelFilepath = BASE_DIR + "BasicFMmetamodel.ecore";
 		
@@ -74,7 +75,7 @@ public class BasicFMsTests {
 	@Test
 	public void emptyFeatureModelStatic() throws IOException {
 		String featureModelName = "fm";
-		String fmFilepath = GENERATED_MODELS + "fm_static.xmi";
+		String fmFilepath = GENERATED_FMS_PATH + "fm_static.xmi";
 		String fmExpectedFilepath = EXPECTED_FMS_PATH + "fm.xmi";
 		//String metamodelFilepath = BASE_DIR + "BasicFMmetamodel.ecore";
 		
@@ -99,60 +100,83 @@ public class BasicFMsTests {
 	@TestFactory
 	List<DynamicTest> testGenerationFMs_RootGen() {
 		List<String> expectedFMs = List.of("fm_RootGen.xmi");
+		String moduleName = "RootGen.henshin";
 		String generatorName = "RootGen";
 		String featureName = "Root";
+		Map<String, String> parameters = Map.of("name", featureName);	
 		String sourceFM = "fm.xmi";
-	
-		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
-		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, moduleName, generatorName, parameters, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(moduleName, generatorName, parameters, expectedFMs));
 		return tests;
 	}
 	
 	@TestFactory
 	List<DynamicTest> testGenerationFMs_MandatoryFeatureA() {
 		List<String> expectedFMs = List.of("fm_MandatoryFeatureGen_A.xmi");
+		String moduleName = "FeatureGen.henshin";
 		String generatorName = "MandatoryFeatureGen";
 		String featureName = "A";
+		Map<String, String> parameters = Map.of("name", featureName);
 		String sourceFM = "fm_RootGen.xmi";
 	
-		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
-		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, moduleName, generatorName, parameters, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(moduleName, generatorName, parameters, expectedFMs));
 		return tests;
 	}
 	
 	@TestFactory
 	List<DynamicTest> testGenerationFMs_MandatoryFeatureB() {
 		List<String> expectedFMs = List.of("fm_MandatoryFeatureGen_B1.xmi", "fm_MandatoryFeatureGen_B2.xmi");
+		String moduleName = "FeatureGen.henshin";
 		String generatorName = "MandatoryFeatureGen";
 		String featureName = "B";
+		Map<String, String> parameters = Map.of("name", featureName);
 		String sourceFM = "fm_MandatoryFeatureGen_A.xmi";
 	
-		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
-		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, moduleName, generatorName, parameters, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(moduleName, generatorName, parameters, expectedFMs));
 		return tests;
 	}
 	
 	@TestFactory
 	List<DynamicTest> testGenerationFMs_OptionalFeatureA() {
 		List<String> expectedFMs = List.of("fm_OptionalFeatureGen_A.xmi");
+		String moduleName = "FeatureGen.henshin";
 		String generatorName = "OptionalFeatureGen";
 		String featureName = "A";
+		Map<String, String> parameters = Map.of("name", featureName);
 		String sourceFM = "fm_RootGen.xmi";
 	
-		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
-		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, moduleName, generatorName, parameters, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(moduleName, generatorName, parameters, expectedFMs));
 		return tests;
 	}
 	
 	@TestFactory
 	List<DynamicTest> testGenerationFMs_OptionalFeatureB() {
 		List<String> expectedFMs = List.of("fm_OptionalFeatureGen_B1.xmi", "fm_OptionalFeatureGen_B2.xmi");
+		String moduleName = "FeatureGen.henshin";
 		String generatorName = "OptionalFeatureGen";
 		String featureName = "B";
+		Map<String, String> parameters = Map.of("name", featureName);
 		String sourceFM = "fm_MandatoryFeatureGen_A.xmi";
 	
-		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, generatorName, featureName, sourceFM);
-		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(generatorName, featureName, expectedFMs));
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, moduleName, generatorName, parameters, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(moduleName, generatorName, parameters, expectedFMs));
+		return tests;
+	}
+	
+	@TestFactory
+	List<DynamicTest> testGenerationFMs_AlternativeGroupGen() {
+		List<String> expectedFMs = List.of("fm_AlternativeGroupGen.xmi");
+		String moduleName = "AlternativeFeatureGen.henshin";
+		String generatorName = "AlternativeGroupGen";
+		Map<String, String> parameters = Map.of();
+		String sourceFM = "fm_AlternativeGroupGen_test.xmi";
+	
+		List<DynamicTest> tests = genDynamicTestsForGeneratorApplication(expectedFMs, moduleName, generatorName, parameters, sourceFM);
+		tests.addAll(genDynamicTestForGeneratorApplicationWithoutResults(moduleName, generatorName, parameters, expectedFMs));
 		return tests;
 	}
 	
@@ -165,16 +189,23 @@ public class BasicFMsTests {
 	 * @param sourceFM
 	 * @return
 	 */
-	private List<DynamicTest> genDynamicTestsForGeneratorApplication(List<String> expectedFMs, String generator, String featureName, String sourceFM) {
-		Map<String, String> parameters = new HashMap<String, String>();
-		parameters.put("name", featureName);
-		
+	private List<DynamicTest> genDynamicTestsForGeneratorApplication(List<String> expectedFMs, String generatorModule, String generator, Map<String, String> parameters, String sourceFM) {
 		HenshinHelper henshin = new HenshinHelper(BASE_DIR);
-		List<EObject> resultFMs = henshin.executeRuleForAllMatches(GENERATORS_PATH, generator, parameters, FMS_DIR + sourceFM);
+		List<EObject> resultFMs = henshin.executeRuleForAllMatches(GENERATORS_DIR + generatorModule, generator, parameters, FMS_DIR + sourceFM);
 		
 		List<FeatureModel> expectedFMsLoaded = new ArrayList<FeatureModel>();
 		for (String filepath : expectedFMs) {
 			expectedFMsLoaded.add((FeatureModel) EMFIO.loadModel(METAMODEL, EXPECTED_FMS_PATH + filepath));
+		}
+		
+		try {
+			int i = 1;
+			for (EObject m : resultFMs) {
+				EMFIO.saveModel(m, METAMODEL, GENERATED_FMS_PATH + generator + i + ".xmi");
+				i++;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		// The tests
@@ -203,16 +234,13 @@ public class BasicFMsTests {
 	 * @param sourceFMs
 	 * @return
 	 */
-	private List<DynamicTest> genDynamicTestForGeneratorApplicationWithoutResults(String generator, String featureName, List<String> sourceFMs) {
-		Map<String, String> parameters = new HashMap<String, String>();
-		parameters.put("name", featureName);
-		
+	private List<DynamicTest> genDynamicTestForGeneratorApplicationWithoutResults(String generatorModule, String generator, Map<String, String> parameters, List<String> sourceFMs) {		
 		HenshinHelper henshin = new HenshinHelper(BASE_DIR);
 		
 		// The tests
 		List<DynamicTest> list = new ArrayList<DynamicTest>();
 		for (String filepath : sourceFMs) {
-			List<EObject> resultFMs = henshin.executeRuleForAllMatches(GENERATORS_PATH, generator, parameters, FMS_DIR + filepath);
+			List<EObject> resultFMs = henshin.executeRuleForAllMatches(GENERATORS_DIR + generatorModule, generator, parameters, FMS_DIR + filepath);
 			list.add(DynamicTest.dynamicTest("Double application in FM " + filepath, () -> Assertions.assertTrue(resultFMs.isEmpty())));
 		}
 		return list;

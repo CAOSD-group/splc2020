@@ -2,15 +2,16 @@
 <BasicFMmetamodel:FeatureModel
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:BasicFMmetamodel="http://caosd.lcc.uma.es/BasicFMmetamodel"
     name="fm">
-  <root id="Root"
+  <root xsi:type="BasicFMmetamodel:Alternative"
+      id="Root"
       name="Root"
       mandatory="true">
     <children
         id="A"
-        name="A"
-        mandatory="true"/>
+        name="A"/>
     <children
         id="B"
         name="B"/>

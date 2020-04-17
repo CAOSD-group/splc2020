@@ -10,10 +10,27 @@
     <children
         id="A"
         name="A"
-        mandatory="true"/>
+        mandatory="true">
+      <children
+          id="A1"
+          name="A1"
+          mandatory="true"/>
+      <children
+          id="A2"
+          name="A2"
+          mandatory="true"/>
+    </children>
     <children
         id="B"
         name="B"
-        mandatory="true"/>
+        mandatory="true">
+      <children
+          id="B1"
+          name="B1"/>
+      <children
+          id="B2"
+          name="B2"
+          mandatory="true"/>
+    </children>
   </root>
 </BasicFMmetamodel:FeatureModel>
