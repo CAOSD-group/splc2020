@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_JW1aIIJmEeqQZNWU3p2bbQ">
+  <imports href="BasicFMsmetamodel.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_KCtBoIJmEeqQZNWU3p2bbQ" name="OptionalFeatureGen">
+    <parameters xmi:id="_MT0vsIJmEeqQZNWU3p2bbQ" name="name" kind="IN">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_MT0vsYJmEeqQZNWU3p2bbQ" name="parentName" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_KCwE8IJmEeqQZNWU3p2bbQ" name="Lhs">
+      <nodes xmi:id="_NDcOwIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//FeatureModel"/>
+      </nodes>
+      <nodes xmi:id="_NZ6OAIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+        <attributes xmi:id="_QginwIJmEeqQZNWU3p2bbQ" value="parentName">
+          <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_Oi0W04JmEeqQZNWU3p2bbQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_Oi0W1IJmEeqQZNWU3p2bbQ">
+          <conclusion xmi:id="_Oi0W1YJmEeqQZNWU3p2bbQ">
+            <nodes xmi:id="_Oi094IJmEeqQZNWU3p2bbQ">
+              <type href="BasicFMsmetamodel.ecore#//FeatureModel"/>
+            </nodes>
+            <nodes xmi:id="_Oi094oJmEeqQZNWU3p2bbQ">
+              <type href="BasicFMsmetamodel.ecore#//Feature"/>
+              <attributes xmi:id="_QginwoJmEeqQZNWU3p2bbQ" value="parentName">
+                <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_Oi0W0IJmEeqQZNWU3p2bbQ">
+              <type href="BasicFMsmetamodel.ecore#//Feature"/>
+              <attributes xmi:id="_Rt82EIJmEeqQZNWU3p2bbQ" value="name">
+                <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+              </attributes>
+            </nodes>
+          </conclusion>
+          <mappings xmi:id="_Oi094YJmEeqQZNWU3p2bbQ" origin="_NDcOwIJmEeqQZNWU3p2bbQ" image="_Oi094IJmEeqQZNWU3p2bbQ"/>
+          <mappings xmi:id="_Oi0944JmEeqQZNWU3p2bbQ" origin="_NZ6OAIJmEeqQZNWU3p2bbQ" image="_Oi094oJmEeqQZNWU3p2bbQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_KCwE8YJmEeqQZNWU3p2bbQ" name="Rhs">
+      <nodes xmi:id="_NDcOwYJmEeqQZNWU3p2bbQ" outgoing="_TvTp0IJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//FeatureModel"/>
+      </nodes>
+      <nodes xmi:id="_NZ6OAYJmEeqQZNWU3p2bbQ" incoming="_XrDGoIJmEeqQZNWU3p2bbQ" outgoing="_XeOyoIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+        <attributes xmi:id="_QginwYJmEeqQZNWU3p2bbQ" value="parentName">
+          <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_OAFdMIJmEeqQZNWU3p2bbQ" incoming="_TvTp0IJmEeqQZNWU3p2bbQ _XeOyoIJmEeqQZNWU3p2bbQ" outgoing="_XrDGoIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+        <attributes xmi:id="_PfL4cIJmEeqQZNWU3p2bbQ" value="name">
+          <type href="BasicFMsmetamodel.ecore#//Feature/id"/>
+        </attributes>
+        <attributes xmi:id="_PyTowIJmEeqQZNWU3p2bbQ" value="name">
+          <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+        </attributes>
+        <attributes xmi:id="_QBkMwIJmEeqQZNWU3p2bbQ" value="false">
+          <type href="BasicFMsmetamodel.ecore#//Feature/mandatory"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_TvTp0IJmEeqQZNWU3p2bbQ" source="_NDcOwYJmEeqQZNWU3p2bbQ" target="_OAFdMIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//FeatureModel/features"/>
+      </edges>
+      <edges xmi:id="_XeOyoIJmEeqQZNWU3p2bbQ" source="_NZ6OAYJmEeqQZNWU3p2bbQ" target="_OAFdMIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature/children"/>
+      </edges>
+      <edges xmi:id="_XrDGoIJmEeqQZNWU3p2bbQ" source="_OAFdMIJmEeqQZNWU3p2bbQ" target="_NZ6OAYJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature/parent"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_X9-psIJmEeqQZNWU3p2bbQ" name="distinctFeatures" conditionText="parentName != name"/>
+    <mappings xmi:id="_NDcOwoJmEeqQZNWU3p2bbQ" origin="_NDcOwIJmEeqQZNWU3p2bbQ" image="_NDcOwYJmEeqQZNWU3p2bbQ"/>
+    <mappings xmi:id="_NZ6OAoJmEeqQZNWU3p2bbQ" origin="_NZ6OAIJmEeqQZNWU3p2bbQ" image="_NZ6OAYJmEeqQZNWU3p2bbQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_bseUsIJmEeqQZNWU3p2bbQ" name="OptionalAlternativeGen">
+    <parameters xmi:id="_bseUsYJmEeqQZNWU3p2bbQ" name="name" kind="IN">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_bseUsoJmEeqQZNWU3p2bbQ" name="parentName" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_bseUs4JmEeqQZNWU3p2bbQ" name="Lhs">
+      <nodes xmi:id="_bseUtIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//FeatureModel"/>
+      </nodes>
+      <nodes xmi:id="_bseUtYJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+        <attributes xmi:id="_bseUtoJmEeqQZNWU3p2bbQ" value="parentName">
+          <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_bseUt4JmEeqQZNWU3p2bbQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_bseUuIJmEeqQZNWU3p2bbQ">
+          <conclusion xmi:id="_bseUuYJmEeqQZNWU3p2bbQ">
+            <nodes xmi:id="_bseUuoJmEeqQZNWU3p2bbQ">
+              <type href="BasicFMsmetamodel.ecore#//FeatureModel"/>
+            </nodes>
+            <nodes xmi:id="_bseUu4JmEeqQZNWU3p2bbQ">
+              <type href="BasicFMsmetamodel.ecore#//Feature"/>
+              <attributes xmi:id="_bseUvIJmEeqQZNWU3p2bbQ" value="parentName">
+                <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_bseUvYJmEeqQZNWU3p2bbQ">
+              <type href="BasicFMsmetamodel.ecore#//Feature"/>
+              <attributes xmi:id="_bseUvoJmEeqQZNWU3p2bbQ" value="name">
+                <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+              </attributes>
+            </nodes>
+          </conclusion>
+          <mappings xmi:id="_bseUv4JmEeqQZNWU3p2bbQ" origin="_bseUtIJmEeqQZNWU3p2bbQ" image="_bseUuoJmEeqQZNWU3p2bbQ"/>
+          <mappings xmi:id="_bseUwIJmEeqQZNWU3p2bbQ" origin="_bseUtYJmEeqQZNWU3p2bbQ" image="_bseUu4JmEeqQZNWU3p2bbQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_bseUwYJmEeqQZNWU3p2bbQ" name="Rhs">
+      <nodes xmi:id="_bseUwoJmEeqQZNWU3p2bbQ" outgoing="_iAdbQIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//FeatureModel"/>
+      </nodes>
+      <nodes xmi:id="_bseUw4JmEeqQZNWU3p2bbQ" incoming="_hux1YIJmEeqQZNWU3p2bbQ" outgoing="_hicpkIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+        <attributes xmi:id="_bseUxIJmEeqQZNWU3p2bbQ" value="parentName">
+          <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hEHHwIJmEeqQZNWU3p2bbQ" incoming="_hicpkIJmEeqQZNWU3p2bbQ _iAdbQIJmEeqQZNWU3p2bbQ" outgoing="_hux1YIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Alternative"/>
+        <attributes xmi:id="_itmOEIJmEeqQZNWU3p2bbQ" value="name">
+          <type href="BasicFMsmetamodel.ecore#//Feature/id"/>
+        </attributes>
+        <attributes xmi:id="_i97wIIJmEeqQZNWU3p2bbQ" value="name">
+          <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+        </attributes>
+        <attributes xmi:id="_jQxzoIJmEeqQZNWU3p2bbQ" value="false">
+          <type href="BasicFMsmetamodel.ecore#//Feature/mandatory"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_hicpkIJmEeqQZNWU3p2bbQ" source="_bseUw4JmEeqQZNWU3p2bbQ" target="_hEHHwIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature/children"/>
+      </edges>
+      <edges xmi:id="_hux1YIJmEeqQZNWU3p2bbQ" source="_hEHHwIJmEeqQZNWU3p2bbQ" target="_bseUw4JmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature/parent"/>
+      </edges>
+      <edges xmi:id="_iAdbQIJmEeqQZNWU3p2bbQ" source="_bseUwoJmEeqQZNWU3p2bbQ" target="_hEHHwIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//FeatureModel/features"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_bseUzIJmEeqQZNWU3p2bbQ" name="distinctFeatures" conditionText="parentName != name"/>
+    <mappings xmi:id="_bseUzYJmEeqQZNWU3p2bbQ" origin="_bseUtIJmEeqQZNWU3p2bbQ" image="_bseUwoJmEeqQZNWU3p2bbQ"/>
+    <mappings xmi:id="_bseUzoJmEeqQZNWU3p2bbQ" origin="_bseUtYJmEeqQZNWU3p2bbQ" image="_bseUw4JmEeqQZNWU3p2bbQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_d2VkMIJmEeqQZNWU3p2bbQ" name="OptionalOrGroupGen">
+    <parameters xmi:id="_d2VkMYJmEeqQZNWU3p2bbQ" name="name" kind="IN">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_d2VkMoJmEeqQZNWU3p2bbQ" name="parentName" kind="VAR">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_d2VkM4JmEeqQZNWU3p2bbQ" name="Lhs">
+      <nodes xmi:id="_d2VkNIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//FeatureModel"/>
+      </nodes>
+      <nodes xmi:id="_d2VkNYJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+        <attributes xmi:id="_d2VkNoJmEeqQZNWU3p2bbQ" value="parentName">
+          <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_d2VkN4JmEeqQZNWU3p2bbQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_d2VkOIJmEeqQZNWU3p2bbQ">
+          <conclusion xmi:id="_d2VkOYJmEeqQZNWU3p2bbQ">
+            <nodes xmi:id="_d2VkOoJmEeqQZNWU3p2bbQ">
+              <type href="BasicFMsmetamodel.ecore#//FeatureModel"/>
+            </nodes>
+            <nodes xmi:id="_d2VkO4JmEeqQZNWU3p2bbQ">
+              <type href="BasicFMsmetamodel.ecore#//Feature"/>
+              <attributes xmi:id="_d2VkPIJmEeqQZNWU3p2bbQ" value="parentName">
+                <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_d2VkPYJmEeqQZNWU3p2bbQ">
+              <type href="BasicFMsmetamodel.ecore#//Feature"/>
+              <attributes xmi:id="_d2VkPoJmEeqQZNWU3p2bbQ" value="name">
+                <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+              </attributes>
+            </nodes>
+          </conclusion>
+          <mappings xmi:id="_d2VkP4JmEeqQZNWU3p2bbQ" origin="_d2VkNIJmEeqQZNWU3p2bbQ" image="_d2VkOoJmEeqQZNWU3p2bbQ"/>
+          <mappings xmi:id="_d2VkQIJmEeqQZNWU3p2bbQ" origin="_d2VkNYJmEeqQZNWU3p2bbQ" image="_d2VkO4JmEeqQZNWU3p2bbQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_d2VkQYJmEeqQZNWU3p2bbQ" name="Rhs">
+      <nodes xmi:id="_d2VkQoJmEeqQZNWU3p2bbQ" outgoing="_m-2A0IJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//FeatureModel"/>
+      </nodes>
+      <nodes xmi:id="_d2VkQ4JmEeqQZNWU3p2bbQ" incoming="_neJzAIJmEeqQZNWU3p2bbQ" outgoing="_nOtBwIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+        <attributes xmi:id="_d2VkRIJmEeqQZNWU3p2bbQ" value="parentName">
+          <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_lYREkIJmEeqQZNWU3p2bbQ" incoming="_m-2A0IJmEeqQZNWU3p2bbQ _nOtBwIJmEeqQZNWU3p2bbQ" outgoing="_neJzAIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//OrGroup"/>
+        <attributes xmi:id="_l3xrEIJmEeqQZNWU3p2bbQ" value="name">
+          <type href="BasicFMsmetamodel.ecore#//Feature/id"/>
+        </attributes>
+        <attributes xmi:id="_mQpeEIJmEeqQZNWU3p2bbQ" value="false">
+          <type href="BasicFMsmetamodel.ecore#//Feature/mandatory"/>
+        </attributes>
+        <attributes xmi:id="_mi99IIJmEeqQZNWU3p2bbQ" value="name">
+          <type href="BasicFMsmetamodel.ecore#//Feature/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_m-2A0IJmEeqQZNWU3p2bbQ" source="_d2VkQoJmEeqQZNWU3p2bbQ" target="_lYREkIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//FeatureModel/features"/>
+      </edges>
+      <edges xmi:id="_nOtBwIJmEeqQZNWU3p2bbQ" source="_d2VkQ4JmEeqQZNWU3p2bbQ" target="_lYREkIJmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature/children"/>
+      </edges>
+      <edges xmi:id="_neJzAIJmEeqQZNWU3p2bbQ" source="_lYREkIJmEeqQZNWU3p2bbQ" target="_d2VkQ4JmEeqQZNWU3p2bbQ">
+        <type href="BasicFMsmetamodel.ecore#//Feature/parent"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_d2VkTIJmEeqQZNWU3p2bbQ" name="distinctFeatures" conditionText="parentName != name"/>
+    <mappings xmi:id="_d2VkTYJmEeqQZNWU3p2bbQ" origin="_d2VkNIJmEeqQZNWU3p2bbQ" image="_d2VkQoJmEeqQZNWU3p2bbQ"/>
+    <mappings xmi:id="_d2VkToJmEeqQZNWU3p2bbQ" origin="_d2VkNYJmEeqQZNWU3p2bbQ" image="_d2VkQ4JmEeqQZNWU3p2bbQ"/>
+  </units>
+</henshin:Module>
