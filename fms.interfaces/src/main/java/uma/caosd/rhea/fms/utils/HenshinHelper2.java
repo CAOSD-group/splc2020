@@ -22,28 +22,35 @@ import org.eclipse.emf.henshin.model.ParameterKind;
 import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
-public class HenshinHelper {
+public class HenshinHelper2 {
 	private HenshinResourceSet resourceSet;
 	private Engine engine;
 	private int threads;						// Number of threads to be used
 	
-	public HenshinHelper(String basedir) {	
+	public HenshinHelper2(String basedir) {
+		// Determine number of threads to be used
+		threads = Math.max(Runtime.getRuntime().availableProcessors() / 2, 1);
+		
 		// Create a resource set for the working directory "my/working/directory":
 		resourceSet = new HenshinResourceSet(basedir);
+		
+		// If static meta-models are involved, initialize the relevant packages:
+		//metamodel.eClass();
+		
+		// if dynamic meta-model, register it
+		//resourceSet.getPackageRegistry().put(metamodel.getNsURI(), metamodel);
 		
 		// Register relevant resource factories for model loading (XMIResourceFactoryImpl usually works): 
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 		
 		// Prepare the engine:
 		engine = new EngineImpl();
-		//engine.getOptions().put(Engine.OPTION_WORKER_THREADS, threads);
-		//engine.getOptions().put(Engine.OPTION_DESTROY_MATCHES, true);
+		engine.getOptions().put(Engine.OPTION_WORKER_THREADS, threads);
+		engine.getOptions().put(Engine.OPTION_DESTROY_MATCHES, true);
 		//engine.getOptions().put(Engine.OPTION_INJECTIVE_MATCHING, false);
 		//engine.getOptions().put(Engine.OPTION_INJECTIVE_MATCHING, false);
 	}
 
-	
-	
 	/**
 	 * Find all matches and apply the transformation to each match individually.
 	 * 
@@ -103,46 +110,6 @@ public class HenshinHelper {
 			FeatureModel f = (FeatureModel) o;
 			System.out.println(f.getFeatures());
 		}*/
-		return results;
-	}
-	
-	/**
-	 * Find all matches and apply the transformation to each match individually.
-	 * 
-	 * @param rule
-	 * @param parameters
-	 * @param model
-	 * @return
-	 */
-	public List<EObject> executeRuleForAllMatches(Rule rule, Map<String,String> parameters, EObject model) {						
-		EObject modelCopy = EcoreUtil.copy(model);
-		
-		// Initialize the graph:
-		EGraph graph = new EGraphImpl(modelCopy);
-		
-		// Set parameters
-		Match partialMatch = new MatchImpl(rule);
-		for (Parameter p : rule.getParameters()) {
-			if (p.getKind().equals(ParameterKind.IN)) {
-				partialMatch.setParameterValue(p, parameters.get(p.getName()));
-			}
-		}
-		
-		List<EObject> results = new ArrayList<EObject>();
-		for (Match match : engine.findMatches(rule, graph, partialMatch)) {
-			System.out.println(match);
-			
-			// Copy the model
-			EObject m = EcoreUtil.copy(modelCopy);
-			
-			// Initialize the graph:
-			EGraph g = new EGraphImpl(m);
-						
-			UnitApplication application = new UnitApplicationImpl(engine, g, match.getRule(), match);
-			application.execute(null);
-			
-			results.add(m);
-		}
 		return results;
 	}
 

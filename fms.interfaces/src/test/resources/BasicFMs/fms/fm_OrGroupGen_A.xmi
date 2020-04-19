@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<BasicFMmetamodel:FeatureModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:BasicFMmetamodel="http://caosd.lcc.uma.es/BasicFMmetamodel"
+    name="fm">
+  <root id="Root"
+      name="Root"
+      mandatory="true">
+    <children
+        id="B"
+        name="B"
+        mandatory="true">
+      <children
+          id="B1"
+          name="B1"/>
+      <children
+          id="B2"
+          name="B2"
+          mandatory="true"/>
+    </children>
+    <children
+        xsi:type="BasicFMmetamodel:OrGroup"
+        id="A"
+        name="A"
+        mandatory="true">
+      <children
+          id="A1"
+          name="A1"/>
+      <children
+          id="A2"
+          name="A2"/>
+    </children>
+  </root>
+</BasicFMmetamodel:FeatureModel>

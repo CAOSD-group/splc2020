@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.google.common.collect.Sets;
 
@@ -31,8 +32,8 @@ public class LanguageExpressiveness {
 	private List<String> concreteFeatures;
 	private List<String> abstractFeatures;
 	
-	public LanguageExpressiveness(EPackage metamodel, String generatorsFilepath, int nFeatures, int nConcreteFeatures) {
-		this.fmGen = new FeatureModelGenerator(metamodel, generatorsFilepath);
+	public LanguageExpressiveness(String basedir, EPackage metamodel, List<String> generatorsModuleNames, int nFeatures, int nConcreteFeatures) {
+		this.fmGen = new FeatureModelGenerator(basedir, metamodel, generatorsModuleNames);
 		
 		this.features = this.generateFeatures(nFeatures);
 		this.concreteFeatures = this.features.subList(0, nConcreteFeatures);
@@ -137,10 +138,18 @@ public class LanguageExpressiveness {
 	private List<FeatureModel> generateFeatureModels() {
 		FeatureModel fm = fmGen.generateEmptyFeatureModel(FM_NAME);
 		List<FeatureModel> fms = fmGen.generateFeatureModels(fm, features);
-		for (int i = 0; i < fms.size(); i++) {
-			fms.get(i).setName(FM_NAME + (i+1));
+		
+		List<FeatureModel> allFMs = new ArrayList<FeatureModel>();
+		for (FeatureModel m1 : fms) {
+			if (!allFMs.stream().anyMatch(m2 -> EcoreUtil.equals(m1, m2))) {
+				allFMs.add(m1);
+			}
 		}
-		return fms;
+		
+		for (int i = 0; i < allFMs.size(); i++) {
+			allFMs.get(i).setName(FM_NAME + (i+1));
+		}
+		return allFMs;
 	}
 	
 	/**

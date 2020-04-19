@@ -8,24 +8,25 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage;
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
-import uma.caosd.rhea.fms.utils.EMFIO;
 import uma.caosd.rhea.fms.utils.Utils;
 
 public class Main {
 	public static final String BASE_DIR = "BasicFMs/tmp/";
 	
-	public static final String basedir = "src/main/resources/BasicFMs/";
+	public static final String basedir = "src/main/resources/BasicFMs/generators/";
 	public static final String allFMsDir = basedir + "allFMs/";
 	public static final EPackage metamodel = BasicFMmetamodelPackage.eINSTANCE;
 	public static final String metamodelFilepath = basedir + "BasicFMmetamodel.ecore";
-	public static final String generatorsFilepath = basedir + "BasicFMgenerators.henshin"; 
+	//public static final String generatorsFilepath = basedir + "BasicFMgenerators.henshin"; 
+	public static final List<String> generatorsModuleNames = List.of("RootGen.henshin", "OptionalFeatureGen.henshin", "MandatoryFeatureGen.henshin");
 	public static final String fmName = "fm";
 	public static final int N_FEATURES = 3;
 	public static final int CONCRETE_FEATURES = 2;
+	
+	public static final String TEMPORAL_FILES = basedir + "temp/";
 	
 	public static void main(String[] args) throws IOException {
 		Utils.cleanUp(BASE_DIR);
@@ -33,7 +34,8 @@ public class Main {
 		//EPackage metamodel = (EPackage) EMFIO.loadMetamodel(metamodelFilepath);
 		//System.out.println(metamodel);
 		
-		LanguageExpressiveness le = new LanguageExpressiveness(metamodel, generatorsFilepath, N_FEATURES, CONCRETE_FEATURES);
+		//EPackage metamodel = (EPackage) EMFIO.loadMetamodel(metamodelFilepath);
+		LanguageExpressiveness le = new LanguageExpressiveness(basedir, metamodel, generatorsModuleNames, N_FEATURES, CONCRETE_FEATURES);
 		
 		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(basedir + "stats.txt")));
 		
@@ -66,10 +68,13 @@ public class Main {
 		out.println();
 		out.println("********** ALL POSSIBLE FEATURE MODELS IN L (i.e., can be specified by these metamodels) **********");
 		List<FeatureModel> fms = le.getFeatureModels();
+		System.out.println("#FMs: " + fms.size());
 		out.println("#FMs: " + fms.size());
-//		for (FeatureModel fm : fms) {
-//			out.println("FM: " + fm);
-//		}
+		/*
+		for (FeatureModel fm : fms) {
+			EMFIO.saveModel(fm, metamodel, TEMPORAL_FILES + fm.getName() + ".xmi");
+		}
+		*/
 		
 		out.println();
 		out.println("********** MAPPING: FM -> CONFIGS -> SPL **********");
@@ -97,6 +102,8 @@ public class Main {
 		Utils.cleanUp(BASE_DIR);
 		
 		out.close();
+		
+		System.out.println("Done!");
 	}
 }
 

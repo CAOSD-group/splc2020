@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_D5VF4II1EeqQZNWU3p2bbQ">
+  <imports href="BasicConstraintsFMmetamodel.ecore#/"/>
+  <imports href="../BasicFMmetamodel.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_EYHToII1EeqQZNWU3p2bbQ" name="RequiresGen">
+    <lhs xmi:id="_EYKW8II1EeqQZNWU3p2bbQ" name="Lhs">
+      <nodes xmi:id="_LBpMYII1EeqQZNWU3p2bbQ">
+        <type href="../BasicFMmetamodel.ecore#//Feature"/>
+      </nodes>
+      <nodes xmi:id="_NWEGEII1EeqQZNWU3p2bbQ">
+        <type href="../BasicFMmetamodel.ecore#//Feature"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_EYKW8YI1EeqQZNWU3p2bbQ" name="Rhs">
+      <nodes xmi:id="_GUoqsII1EeqQZNWU3p2bbQ" outgoing="_LnH4AII1EeqQZNWU3p2bbQ _N1U08II1EeqQZNWU3p2bbQ">
+        <type href="BasicConstraintsFMmetamodel.ecore#//BasicConstraint"/>
+      </nodes>
+      <nodes xmi:id="_LBpzcII1EeqQZNWU3p2bbQ" incoming="_LnH4AII1EeqQZNWU3p2bbQ">
+        <type href="../BasicFMmetamodel.ecore#//Feature"/>
+      </nodes>
+      <nodes xmi:id="_NWEGEYI1EeqQZNWU3p2bbQ" incoming="_N1U08II1EeqQZNWU3p2bbQ">
+        <type href="../BasicFMmetamodel.ecore#//Feature"/>
+      </nodes>
+      <edges xmi:id="_LnH4AII1EeqQZNWU3p2bbQ" source="_GUoqsII1EeqQZNWU3p2bbQ" target="_LBpzcII1EeqQZNWU3p2bbQ">
+        <type href="BasicConstraintsFMmetamodel.ecore#//BasicConstraint/rightFeature"/>
+      </edges>
+      <edges xmi:id="_N1U08II1EeqQZNWU3p2bbQ" source="_GUoqsII1EeqQZNWU3p2bbQ" target="_NWEGEYI1EeqQZNWU3p2bbQ">
+        <type href="BasicConstraintsFMmetamodel.ecore#//BasicConstraint/leftFeature"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_LBpzcYI1EeqQZNWU3p2bbQ" origin="_LBpMYII1EeqQZNWU3p2bbQ" image="_LBpzcII1EeqQZNWU3p2bbQ"/>
+    <mappings xmi:id="_NWEGEoI1EeqQZNWU3p2bbQ" origin="_NWEGEII1EeqQZNWU3p2bbQ" image="_NWEGEYI1EeqQZNWU3p2bbQ"/>
+  </units>
+</henshin:Module>

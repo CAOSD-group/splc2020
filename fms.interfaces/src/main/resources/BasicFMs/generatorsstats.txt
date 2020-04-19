@@ -1,0 +1,30 @@
+********** METAMODELS AND LANGUAGE CONSTRUCTS **********
+Metamodels: BasicFMmetamodel (ToDo: Generalize for n metamodels)
+Language constructs: ToDo
+
+********** FEATURES **********
+#F: 1
+[A]
+
+********** CONCRETE FEATURES **********
+#P: 1
+[A]
+
+********** ALL POSSIBLE CONFIGURATIONS **********
+#Power(P): 2
+[[], [A]]
+
+********** ALL POSSIBLE PRODUCT LINES **********
+#Power(Power(P)): 4
+[[], [[]], [[A]], [[], [A]]]
+
+********** ALL POSSIBLE FEATURE MODELS IN L (i.e., can be specified by these metamodels) **********
+#FMs: 0
+
+********** MAPPING: FM -> CONFIGS -> SPL **********
+
+********** ALL DISTINCT SPLS COVERED BY FEATURE MODELS IN L **********
+#SPLs: 0
+
+********** STATS **********
+#SPLs covered by FMs in L: 0/4 (0.0%)

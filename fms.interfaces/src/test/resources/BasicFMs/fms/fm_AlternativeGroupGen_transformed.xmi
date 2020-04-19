@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<BasicFMmetamodel:FeatureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BasicFMmetamodel="http://caosd.lcc.uma.es/BasicFMmetamodel" xsi:schemaLocation="http://caosd.lcc.uma.es/BasicFMmetamodel ../generators/BasicFMmetamodel.ecore" name="fm">
+  <root id="Root" name="Root" mandatory="true">
+    <children id="A" name="A" mandatory="true">
+      <children id="A1" name="A1" mandatory="true"/>
+      <children id="A2" name="A2" mandatory="true"/>
+    </children>
+    <children id="B" name="B" mandatory="true">
+      <children id="B1" name="B1"/>
+      <children id="B2" name="B2" mandatory="true">
+        <children xsi:type="BasicFMmetamodel:Alternative" id="C" name="C"/>
+      </children>
+    </children>
+  </root>
+</BasicFMmetamodel:FeatureModel>

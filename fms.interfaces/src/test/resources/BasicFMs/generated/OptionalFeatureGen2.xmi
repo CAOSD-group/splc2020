@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BasicFMmetamodel:FeatureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BasicFMmetamodel="http://caosd.lcc.uma.es/BasicFMmetamodel" name="fm">
   <root id="Root" name="Root" mandatory="true">
-    <children id="A" name="A" mandatory="true"/>
-    <children id="B" name="B"/>
+    <children id="A" name="A" mandatory="true">
+      <children id="B" name="B"/>
+    </children>
   </root>
 </BasicFMmetamodel:FeatureModel>
