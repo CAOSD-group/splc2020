@@ -1,0 +1,89 @@
+********** METAMODELS AND LANGUAGE CONSTRUCTS **********
+Metamodels: [BasicFMsmetamodel.ecore]
+Language constructs: [RootGen.henshin, FeatureGen.henshin]
+
+********** FEATURES **********
+#F: 3
+[A, B, C]
+
+********** CONCRETE FEATURES **********
+#P: 2
+[A, B]
+
+********** ALL POSSIBLE CONFIGURATIONS **********
+#Power(P): 4
+[[], [A], [B], [A, B]]
+
+********** ALL POSSIBLE PRODUCT LINES **********
+#Power(Power(P)): 16
+[[], [[]], [[A]], [[], [A]], [[B]], [[], [B]], [[A], [B]], [[], [A], [B]], [[A, B]], [[], [A, B]], [[A], [A, B]], [[], [A], [A, B]], [[B], [A, B]], [[], [B], [A, B]], [[A], [B], [A, B]], [[], [A], [B], [A, B]]]
+
+********** ALL POSSIBLE FEATURE MODELS IN L (i.e., can be specified by these metamodels) **********
+#FMs: 48
+
+********** MAPPING: FM -> CONFIGS -> SPL **********
+fm1 (2 configs) -> [[], [A, B]] -> [[], [A, B]]
+fm2 (2 configs) -> [[A], [A, B]] -> [[A], [A, B]]
+fm3 (3 configs) -> [[], [B], [A, B]] -> [[], [B], [A, B]]
+fm4 (4 configs) -> [[], [A], [B], [A, B]] -> [[], [A], [B], [A, B]]
+fm5 (2 configs) -> [[], [A, B]] -> [[], [A, B]]
+fm6 (2 configs) -> [[B], [A, B]] -> [[B], [A, B]]
+fm7 (3 configs) -> [[], [A], [A, B]] -> [[], [A], [A, B]]
+fm8 (4 configs) -> [[], [A], [B], [A, B]] -> [[], [A], [B], [A, B]]
+fm9 (1 configs) -> [[A, B]] -> [[A, B]]
+fm10 (1 configs) -> [[A, B]] -> [[A, B]]
+fm11 (2 configs) -> [[B], [A, B]] -> [[B], [A, B]]
+fm12 (2 configs) -> [[B], [A, B]] -> [[B], [A, B]]
+fm13 (1 configs) -> [[A, B]] -> [[A, B]]
+fm14 (1 configs) -> [[A, B]] -> [[A, B]]
+fm15 (2 configs) -> [[A], [A, B]] -> [[A], [A, B]]
+fm16 (2 configs) -> [[A], [A, B]] -> [[A], [A, B]]
+fm17 (2 configs) -> [[], [A, C]] -> [[], [A]]
+fm18 (2 configs) -> [[A], [A, C]] -> [[A]]
+fm19 (3 configs) -> [[], [C], [A, C]] -> [[], [A]]
+fm20 (4 configs) -> [[], [A], [C], [A, C]] -> [[], [A]]
+fm21 (2 configs) -> [[], [A, C]] -> [[], [A]]
+fm22 (2 configs) -> [[C], [A, C]] -> [[], [A]]
+fm23 (3 configs) -> [[], [A], [A, C]] -> [[], [A]]
+fm24 (4 configs) -> [[], [A], [C], [A, C]] -> [[], [A]]
+fm25 (1 configs) -> [[A, C]] -> [[A]]
+fm26 (1 configs) -> [[A, C]] -> [[A]]
+fm27 (2 configs) -> [[C], [A, C]] -> [[], [A]]
+fm28 (2 configs) -> [[C], [A, C]] -> [[], [A]]
+fm29 (1 configs) -> [[A, C]] -> [[A]]
+fm30 (1 configs) -> [[A, C]] -> [[A]]
+fm31 (2 configs) -> [[A], [A, C]] -> [[A]]
+fm32 (2 configs) -> [[A], [A, C]] -> [[A]]
+fm33 (2 configs) -> [[], [B, C]] -> [[], [B]]
+fm34 (2 configs) -> [[B], [B, C]] -> [[B]]
+fm35 (3 configs) -> [[], [C], [B, C]] -> [[], [B]]
+fm36 (4 configs) -> [[], [B], [C], [B, C]] -> [[], [B]]
+fm37 (2 configs) -> [[], [B, C]] -> [[], [B]]
+fm38 (2 configs) -> [[C], [B, C]] -> [[], [B]]
+fm39 (3 configs) -> [[], [B], [B, C]] -> [[], [B]]
+fm40 (4 configs) -> [[], [B], [C], [B, C]] -> [[], [B]]
+fm41 (1 configs) -> [[B, C]] -> [[B]]
+fm42 (1 configs) -> [[B, C]] -> [[B]]
+fm43 (2 configs) -> [[C], [B, C]] -> [[], [B]]
+fm44 (2 configs) -> [[C], [B, C]] -> [[], [B]]
+fm45 (1 configs) -> [[B, C]] -> [[B]]
+fm46 (1 configs) -> [[B, C]] -> [[B]]
+fm47 (2 configs) -> [[B], [B, C]] -> [[B]]
+fm48 (2 configs) -> [[B], [B, C]] -> [[B]]
+
+********** ALL DISTINCT SPLS COVERED BY FEATURE MODELS IN L **********
+#SPLs: 11
+SPL: [[A, B]]
+SPL: [[], [A, B]]
+SPL: [[], [A], [B], [A, B]]
+SPL: [[], [A]]
+SPL: [[A]]
+SPL: [[B]]
+SPL: [[], [B]]
+SPL: [[A], [A, B]]
+SPL: [[], [A], [A, B]]
+SPL: [[B], [A, B]]
+SPL: [[], [B], [A, B]]
+
+********** STATS **********
+#SPLs covered by FMs in L: 11/16 (68.75%)

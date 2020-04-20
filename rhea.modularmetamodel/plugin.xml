@@ -14,4 +14,12 @@
             genModel="src/main/resources/models/BasicFMs/BasicFMsmetamodel.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated BasicConstraints -->
+      <package
+            uri="http://caosd.lcc.uma.es/BasicConstraints"
+            class="uma.caosd.rhea.BasicConstraints.BasicConstraintsPackage"
+            genModel="src/main/resources/models/BasicFMs/BasicConstraints.genmodel"/>
+   </extension>
+
 </plugin>

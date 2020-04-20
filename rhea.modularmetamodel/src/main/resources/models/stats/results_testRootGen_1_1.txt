@@ -1,0 +1,32 @@
+********** METAMODELS AND LANGUAGE CONSTRUCTS **********
+Metamodels: [BasicFMsmetamodel.ecore]
+Language constructs: [RootGen.henshin]
+
+********** FEATURES **********
+#F: 1
+[A]
+
+********** CONCRETE FEATURES **********
+#P: 1
+[A]
+
+********** ALL POSSIBLE CONFIGURATIONS **********
+#Power(P): 2
+[[], [A]]
+
+********** ALL POSSIBLE PRODUCT LINES **********
+#Power(Power(P)): 4
+[[], [[]], [[A]], [[], [A]]]
+
+********** ALL POSSIBLE FEATURE MODELS IN L (i.e., can be specified by these metamodels) **********
+#FMs: 1
+
+********** MAPPING: FM -> CONFIGS -> SPL **********
+fm1 (1 configs) -> [[]] -> [[]]
+
+********** ALL DISTINCT SPLS COVERED BY FEATURE MODELS IN L **********
+#SPLs: 1
+SPL: [[]]
+
+********** STATS **********
+#SPLs covered by FMs in L: 1/4 (25.0%)

@@ -34,13 +34,30 @@ public class HenshinHelper {
 		this.engine = new EngineImpl();
 	}
 	
-	public void registerMetamodel(EPackage metamodel) {
+	public EPackage registerMetamodel(String metamodelPath) {
+		Resource res = rs.getResource(metamodelPath);
+		EPackage metamodel = (EPackage) res.getContents().get(0);
 		rs.getPackageRegistry().put(metamodel.getNsURI(), metamodel);
+		EcoreUtil.resolveAll(rs);
+		
+		/*System.out.println("**********");
+		for (Resource r : rs.getResources()) {
+			System.out.println("Resource: " + r);
+		}
+		System.out.println("**********");*/
+		return metamodel;
 	}
 	
 	public EObject loadModel(String modelPath) {
 		Resource res = rs.getResource(modelPath);
+		/*try {
+			res.load(rs.getLoadOptions());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 		EObject modelRoot = res.getContents().get(0);
+		EcoreUtil.resolveAll(rs);
 		return modelRoot;
 	}
 	
@@ -56,8 +73,6 @@ public class HenshinHelper {
 	}
 	
 	public Module getModule(String modulePath) {
-		System.out.println(rs);
-		System.out.println(modulePath);
 		return rs.getModule(modulePath, true);
 	}
 	
@@ -92,10 +107,10 @@ public class HenshinHelper {
 			}
 		}
 		
-		System.out.println("rule: " + rule);
+		//System.out.println("rule: " + rule);
 		List<EObject> results = new ArrayList<EObject>();
 		for (Match match : engine.findMatches(rule, graph, partialMatch)) {
-			System.out.println(match);
+			//System.out.println(match);
 			
 			// Copy the model
 			EObject m = EcoreUtil.copy(modelCopy);
@@ -106,10 +121,13 @@ public class HenshinHelper {
 			UnitApplication application = new UnitApplicationImpl(engine, g, match.getRule(), match);
 			//RuleApplication application = new RuleApplicationImpl(engine, g, match.getRule(), match);
 			//application.setCompleteMatch(match);
-			application.execute(new LoggingApplicationMonitor());
+			//application.execute(new LoggingApplicationMonitor());
+			application.execute(null);
 			
 			results.add(m);
 		}
 		return results;
 	}
+	
+	
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<BasicFMmetamodel:FeatureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BasicConstraints="http://caosd.lcc.uma.es/BasicConstraints" xmlns:BasicFMmetamodel="http://caosd.lcc.uma.es/BasicFMmetamodel" xsi:schemaLocation="http://caosd.lcc.uma.es/BasicConstraints ../BasicConstraints.ecore http://caosd.lcc.uma.es/BasicFMmetamodel ../BasicFMsmetamodel.ecore" name="fm" features="//@root //@root/@children.0 //@root/@children.1">
+  <root id="Root" name="Root" mandatory="true">
+    <children id="A" name="A"/>
+    <children id="B" name="B"/>
+  </root>
+  <crossTreeConstraints xsi:type="BasicConstraints:REQUIRES" leftFeature="//@root/@children.1" rightFeature="//@root/@children.0"/>
+  <crossTreeConstraints xsi:type="BasicConstraints:REQUIRES" leftFeature="//@root/@children.1" rightFeature="//@root"/>
+</BasicFMmetamodel:FeatureModel>

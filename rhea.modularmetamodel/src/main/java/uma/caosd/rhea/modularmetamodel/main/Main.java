@@ -7,28 +7,31 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.emf.ecore.EPackage;
+
+import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage;
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
 import uma.caosd.rhea.modularmetamodel.FMConfig;
 import uma.caosd.rhea.modularmetamodel.FMProductLine;
 import uma.caosd.rhea.modularmetamodel.LanguageExpressiveness;
-import uma.caosd.rhea.modularmetamodel.henshin.FeatureModelGenerator;
 
 public class Main {
 	public static final String BASE_DIR = "src/main/resources/models/BasicFMs/";
 	public static final List<String> METAMODELS_PATHS = List.of("BasicFMsmetamodel.ecore");
-	public static final List<String> GENERATORS_PATHS = List.of("RootGen.henshin", "OptionalFeatureGen.henshin", "MandatoryFeatureGen.henshin");
+	public static final List<EPackage> STATIC_METAMODELS = List.of(BasicFMmetamodelPackage.eINSTANCE);
+	public static final List<String> GENERATORS_PATHS = List.of("RootGen.henshin", "FeatureGen.henshin");
 
-	public static final int N_FEATURES = 2;
+	public static final int N_FEATURES = 3;
 	public static final int CONCRETE_FEATURES = 2;
 	
 	public static final String TEMPORAL_FILES = BASE_DIR + "temp/";
 	
 	public static void main(String[] args) throws IOException {
 		
-		FeatureModelGenerator fmGen = new FeatureModelGenerator(BASE_DIR, METAMODELS_PATHS, GENERATORS_PATHS);
+		//FeatureModelGenerator fmGen = new FeatureModelGenerator(BASE_DIR, METAMODELS_PATHS, GENERATORS_PATHS);
 		//fmGen.generateAllFeatureModels(prefixName, features)
 		
-		LanguageExpressiveness le = new LanguageExpressiveness(BASE_DIR, METAMODELS_PATHS, GENERATORS_PATHS, N_FEATURES, CONCRETE_FEATURES);
+		LanguageExpressiveness le = new LanguageExpressiveness(BASE_DIR, METAMODELS_PATHS, STATIC_METAMODELS, GENERATORS_PATHS, N_FEATURES, CONCRETE_FEATURES);
 		
 		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/models/stats.txt")));
 		

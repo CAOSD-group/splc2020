@@ -1,5 +1,6 @@
 package uma.caosd.rhea.modularmetamodel.henshin;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -12,15 +13,18 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.Unit;
 
+import uma.caosd.rhea.BasicConstraints.BasicConstraintsPackage;
 import uma.caosd.rhea.BasicFMmetamodel.Alternative;
 import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelFactory;
 import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage;
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
 import uma.caosd.rhea.BasicFMmetamodel.OrGroup;
 import uma.caosd.rhea.modularmetamodel.utils.EMFIO;
+import uma.caosd.rhea.modularmetamodel.utils.Utils;
 
 /**
  * Generate all possible feature models with Henshin.
@@ -29,75 +33,100 @@ import uma.caosd.rhea.modularmetamodel.utils.EMFIO;
  *
  */
 public class FeatureModelGenerator {
-	/**
-	 * Initial required metamodel.
-	 */
-	public static final EPackage BASIC_FM_METAMODEL = BasicFMmetamodelPackage.eINSTANCE;
+	public static final BasicFMmetamodelPackage BASIC_FMS_METAMODEL = BasicFMmetamodelPackage.eINSTANCE;
+	public static final String TEMPORAL_FOLDER = "tmp/";
+	public static final String TEMPORAL_FM = TEMPORAL_FOLDER + "fm.xmi";
 	private HenshinHelper henshin;
-	private List<EPackage> metamodels;
+	private List<EPackage> dynamicMetamodels; 	// loaded from the filepath to work with Henshin.
+	private List<EPackage> staticMetamodels;	// loaded from the generated code to work with feature models
 	private List<Module> generators;
+	private String basedir;
 	
+	// TENGO QUE CARGAR LOS METMODELOS DE FORMA ESTÁTICA (PARA TRABAJAR CÓMODAMENTE CON LOS FEATURE MODELS) Y DE FORMA DINÁMICA (PARA HENSHIN).
 	/**
 	 * 
 	 * @param basedir		Base working directory.
-	 * @param metamodels	Paths for the metamodels.
+	 * @param dynamicMetamodels	Paths for the metamodels.
 	 * @param generators	Paths for the Henshin modules (generators).
 	 */
-	public FeatureModelGenerator(String basedir, List<String> metamodelsPaths, List<String> generatorsPaths) {
+	public FeatureModelGenerator(String basedir, List<String> dynamicMetamodelsPaths, List<EPackage> staticMetamodels, List<String> generatorsPaths) {
+		this.basedir = basedir;
 		this.henshin = new HenshinHelper(basedir);
+		this.staticMetamodels = staticMetamodels;
 		
-		// Register main metamodel
-		this.henshin.registerMetamodel(BASIC_FM_METAMODEL);
-		
-		// Register all metamodels
-		this.metamodels = new ArrayList<EPackage>();
-		for (String mm : metamodelsPaths) {
-			EPackage metamodel = (EPackage) EMFIO.loadMetamodel(basedir + mm);
-			this.metamodels.add(metamodel);
-			//this.henshin.registerMetamodel(metamodel);	
+		this.dynamicMetamodels = new ArrayList<EPackage>();
+		for (String mm : dynamicMetamodelsPaths) {
+			EPackage metamodel = henshin.registerMetamodel(mm);
+			this.dynamicMetamodels.add(metamodel);
 		}
 		
 		// Get Henshin modules
 		this.generators = new ArrayList<Module>();
 		for (String genFilepath : generatorsPaths) {
-			this.generators.add(this.henshin.getModule(genFilepath));
+			Module henshinModule = henshin.getModule(genFilepath);
+			this.generators.add(henshinModule);
 		}
 	}
 	
 	public FeatureModel createEmptyFeatureModel(String name) {
-		// Create a dyanmic model
-		EFactory mFactory = BASIC_FM_METAMODEL.getEFactoryInstance();
-		EClass eClass = (EClass) BASIC_FM_METAMODEL.getEClassifier("FeatureModel");
+		EPackage initialMetamodel = staticMetamodels.get(0);
+		EFactory mFactory = initialMetamodel.getEFactoryInstance();
+		EClass eClass = (EClass) initialMetamodel.getEClassifier("FeatureModel");
 		EObject model = mFactory.create(eClass);
 		EAttribute eAttributeName = (EAttribute) eClass.getEStructuralFeature("name");
-		model.eSet(eAttributeName, name);
-				
+		model.eSet(eAttributeName, "fm");
+
 		return (FeatureModel) model;
 	}
 	
 	public List<FeatureModel> generateAllFeatureModels(String prefixName, List<String> features) {
 		List<FeatureModel> completeFMs = new ArrayList<FeatureModel>();
-		boolean end = false;
 		
+		List<EObject> modelObjects = generateAllPossibleModels(prefixName, features);
+		for (EObject m : modelObjects) {
+			henshin.saveModel(m, TEMPORAL_FM);
+			FeatureModel fmTransformed = (FeatureModel) EMFIO.loadModel(this.staticMetamodels, basedir + TEMPORAL_FM);
+			completeFMs.add(fmTransformed);
+		}
+		Utils.cleanUp(basedir + TEMPORAL_FOLDER);
+		
+		completeFMs = filterValidFeatureModels(completeFMs, features);
+		return completeFMs;
+	}
+	
+	private List<EObject> generateAllPossibleModels(String prefixName, List<String> features) {
 		// Initialize with empty feature model
 		FeatureModel initialEmptyFM = createEmptyFeatureModel(prefixName);
-		Stack<FeatureModel> modelsToTransform = new Stack<FeatureModel>();
-		modelsToTransform.add(initialEmptyFM);
+		try {
+			EMFIO.saveModel(initialEmptyFM, this.staticMetamodels, basedir + TEMPORAL_FM);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		EObject initialModel = henshin.loadModel(TEMPORAL_FM);
+		
+		// All models to be returned as result
+		List<EObject> allModels = new ArrayList<EObject>();
+		allModels.add(initialModel);
+		
+		// Models to be transformed with Henshin
+		Stack<EObject> modelsToTransform = new Stack<EObject>();
+		modelsToTransform.add(initialModel);
 		
 		while (!modelsToTransform.isEmpty()) {
-			FeatureModel fm = modelsToTransform.pop();
-			List<FeatureModel> modelsTransformed = this.applyGenerators(fm, features);
+			EObject m = modelsToTransform.pop();
 			
-			for (FeatureModel m : modelsTransformed) {
-				if (isFeatureModelComplete(m, features)) {
-					completeFMs.add(m);
-				} else {
-					modelsToTransform.add(m);
+			// Apply all language generators to the current model with Henshin
+			List<EObject> modelsTransformed = this.applyGenerators(m, features);
+			
+			// Remove duplicates
+			for (EObject mt : modelsTransformed) {
+				if (!allModels.stream().anyMatch(m2 -> EcoreUtil.equals(mt, m2))) {
+					allModels.add(mt);
+					modelsToTransform.add(mt);
 				}
 			}
 		}
-		completeFMs = filterValidFeatureModels(completeFMs);
-		return completeFMs;
+		return allModels;
 	}
 	
 	/*
@@ -130,18 +159,32 @@ public class FeatureModelGenerator {
 	}
 	*/
 	
-	@SuppressWarnings("unchecked")
-	private List<FeatureModel> applyGenerators(FeatureModel fm, List<String> features) {
-		List<FeatureModel> fms = new ArrayList<FeatureModel>();
+	private List<EObject> applyGenerators(EObject model, List<String> features) {
+		List<EObject> fms = new ArrayList<EObject>();
 		
+//		// Serialize the static model
+//		try {
+//			EMFIO.saveModel(fm, this.dynamicMetamodels, basedir + TEMPORAL_FM);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		// Load the model with Henshin
+//		EObject model = henshin.loadModel(TEMPORAL_FM);
+//		
 		for (Module module : this.generators) {
 			for (Unit unit : module.getUnits()) {
 				for (String featureName : features) {
 					Map<String, String> parameters = Map.of("name", featureName);
 					
-					List<EObject> modelsTransformed = this.henshin.executeRuleForAllMatches(unit, parameters, fm);
-					System.out.println("modelsTransformed: " + modelsTransformed.size());
-					fms.addAll((Collection<? extends FeatureModel>) modelsTransformed);
+					List<EObject> modelsTransformed = this.henshin.executeRuleForAllMatches(unit, parameters, model);
+					//System.out.println("modelsTransformed: " + modelsTransformed.size());
+					fms.addAll(modelsTransformed);
+					// Serialize the models and load them statically
+//					for (EObject m : modelsTransformed) {
+//						henshin.saveModel(m, TEMPORAL_FM);
+//						FeatureModel fmTransformed = (FeatureModel) EMFIO.loadModel(this.staticMetamodels, basedir + TEMPORAL_FM);
+//						fms.add(fmTransformed);
+//					}
 				}
 			}	
 		}
@@ -158,9 +201,13 @@ public class FeatureModelGenerator {
 		return true;
 	}
 	
-	private List<FeatureModel> filterValidFeatureModels(List<FeatureModel> fms) {
+	private List<FeatureModel> filterValidFeatureModels(List<FeatureModel> fms, List<String> features) {
+		// Feature model contains all features
+		fms = fms.stream().filter(fm -> isFeatureModelComplete(fm, features)).collect(Collectors.toList());
+		
 		// Feature groups cannot be leafs
 		fms = fms.stream().filter(fm -> !fm.getFeatures().stream().anyMatch(f -> f.isLeaf() && (f instanceof Alternative || f instanceof OrGroup))).collect(Collectors.toList());
+		
 		// Feature groups must have at least 2 childs
 		fms = fms.stream().filter(fm -> !fm.getFeatures().stream().anyMatch(f -> f.getChildren().size() < 2 && (f instanceof Alternative || f instanceof OrGroup))).collect(Collectors.toList());
 		

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<BasicFMmetamodel:FeatureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:BasicFMmetamodel="http://caosd.lcc.uma.es/BasicFMmetamodel" name="fm" features="//@root">
+  <root id="Root" name="Root" mandatory="true"/>
+</BasicFMmetamodel:FeatureModel>

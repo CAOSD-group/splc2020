@@ -79,9 +79,8 @@ public class Utils {
 	}
 	
 	 /**
-     * Clean up the rule serialisation directory.
+     * Clean up the serialisation directory.
      * 
-     * @param baseDir	Base dir.
      * @param folder	Folder name to be cleaned.
      */
 	public static void cleanUp(String folder) {
