@@ -1,0 +1,48 @@
+********** METAMODELS AND LANGUAGE CONSTRUCTS **********
+Metamodels: [BasicFMsmetamodel.ecore]
+Language constructs: [RootGen.henshin, FeatureGen.henshin, OrGroupGen.henshin, AlternativeGen.henshin]
+
+********** FEATURES **********
+#F: 2
+[A, B]
+
+********** CONCRETE FEATURES **********
+#P: 1
+[A]
+
+********** ALL POSSIBLE CONFIGURATIONS **********
+#Power(P): 2
+[[], [A]]
+
+********** ALL POSSIBLE PRODUCT LINES **********
+#Power(Power(P)): 4
+[[], [[]], [[A]], [[], [A]]]
+
+********** ALL POSSIBLE DISTINCT PRODUCT LINES **********
+#DistinctSPLS: 2
+[[[A]], [[], [A]]]
+#DistinctSPLs (formulae): 2
+
+********** ALL POSSIBLE FEATURE MODELS IN L (i.e., can be specified by these metamodels) **********
+#FMs: 4
+
+********** MAPPING: FM -> CONFIGS -> SPL **********
+fm1 (1 configs) -> [[A]] -> [[A]]
+fm2 (2 configs) -> [[], [A]] -> [[], [A]]
+fm3 (1 configs) -> [[B]] -> [[]]
+fm4 (2 configs) -> [[], [B]] -> [[]]
+
+********** ALL SPLS COVERED BY FEATURE MODELS IN L **********
+#SPLs: 3
+SPL: [[]]
+SPL: [[A]]
+SPL: [[], [A]]
+
+********** ALL DISTINCT SPLS COVERED BY FEATURE MODELS IN L **********
+#SPLs: 2
+SPL: [[A]]
+SPL: [[], [A]]
+
+********** STATS **********
+#SPLs covered by FMs in L: 3/4 (75.0%)
+#Distinct SPLs covered by FMs in L: 2/2 (100.0%)

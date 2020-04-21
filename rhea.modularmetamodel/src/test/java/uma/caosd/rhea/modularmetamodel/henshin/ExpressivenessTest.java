@@ -26,8 +26,8 @@ public class ExpressivenessTest {
 	public static final String STATS_DIR = "src/main/resources/models/Stats/";
 	public static final int RUNS = 1;
 	
-	public static final int FEATURES = 3;
-	public static final int CONCRETE_FEATURES = 3;
+	public static final int FEATURES = 2;
+	public static final int CONCRETE_FEATURES = 1;
 	
 	public static void main(String[] args) throws IOException {
 //		PrintStream o = new PrintStream(new File(STATS_DIR + "output.txt")); 
@@ -36,18 +36,18 @@ public class ExpressivenessTest {
 		String basedir = BASE_DIR;
 		
 		// M0 (BasicFMs without constraints):
-		/*
+		
 		List<String> dynamicMetamodels = List.of("BasicFMsmetamodel.ecore");
 		List<EPackage> staticMetamodels = List.of(BasicFMmetamodelPackage.eINSTANCE);
 		List<String> generators = List.of("RootGen.henshin", "FeatureGen.henshin", "OrGroupGen.henshin", "AlternativeGen.henshin");
-		*/
+		
 		
 		// BasicFMs
-		
+		/*
 		List<String> dynamicMetamodels = List.of("BasicFMsmetamodel.ecore", "BasicConstraints.ecore");
 		List<EPackage> staticMetamodels = List.of(BasicFMmetamodelPackage.eINSTANCE, BasicConstraintsPackage.eINSTANCE);
 		List<String> generators = List.of("RootGen.henshin", "FeatureGen.henshin", "OrGroupGen.henshin", "AlternativeGen.henshin", "BasicConstraintsGen.henshin");
-		
+		*/
 		
 		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(STATS_DIR + "resuls.txt")));
 		
@@ -87,9 +87,12 @@ public class ExpressivenessTest {
 		out.println("#Power(Power(P)): " + pls.size());
 		out.println(pls);
 		out.println();
-		out.println("********** ALL POSSIBLE DSITINCT PRODUCT LINES **********");
-		long distinctPLs = LanguageExpressiveness.getAllPossibleDistinctSPLs(le.getConcreteFeatures());
-		out.println("#DistinctSPLs: " + distinctPLs);
+		out.println("********** ALL POSSIBLE DISTINCT PRODUCT LINES **********");
+		Set<FMProductLine> distinctpls = LanguageExpressiveness.getAllPossibleDistinctSPLs(le.getConcreteFeatures());
+		out.println("#DistinctSPLS: " + distinctpls.size());
+		out.println(distinctpls);
+		long distinctPLs = LanguageExpressiveness.getNumberAllPossibleDistinctSPLs(le.getConcreteFeatures());
+		out.println("#DistinctSPLs (formulae): " + distinctPLs);
 		
 		
 		out.println();
@@ -116,24 +119,34 @@ public class ExpressivenessTest {
 		}
 		
 		out.println();
-		out.println("********** ALL DISTINCT SPLS COVERED BY FEATURE MODELS IN L **********");
+		out.println("********** ALL SPLS COVERED BY FEATURE MODELS IN L **********");
 		System.out.println("Generating SPLs...");
 		Set<FMProductLine> spls = le.getProductLines();
 		out.println("#SPLs: " + spls.size());
 		for (FMProductLine pl : spls) {
 			out.println("SPL: " + pl);
 		}
+		out.println();
+		out.println("********** ALL DISTINCT SPLS COVERED BY FEATURE MODELS IN L **********");
+		Set<FMProductLine> distinctspls = le.getDistinctProductLines();
+		out.println("#SPLs: " + distinctspls.size());
+		for (FMProductLine pl : distinctspls) {
+			out.println("SPL: " + pl);
+		}
+		
 
 		out.println();
 		out.println("********** STATS **********");
-		out.println("#SPLs covered by FMs in L: " + spls.size() + "/" + distinctPLs + " (" + (double)(spls.size())/distinctPLs * 100 + "%)");
+		out.println("#SPLs covered by FMs in L: " + spls.size() + "/" + pls.size() + " (" + (double)(spls.size())/pls.size() * 100 + "%)");
+		out.println("#Distinct SPLs covered by FMs in L: " + distinctspls.size() + "/" + distinctPLs + " (" + (double)(distinctspls.size())/distinctPLs * 100 + "%)");
 		
 		out.close();
 		
 		// Print stats
 		PrintWriter stats = new PrintWriter(new BufferedWriter(new FileWriter(STATS_DIR + "resultsTime.txt")));
-		stats.println("#F, #Concrete, #FMs, Time (s), #Configs, Time (s), #SPLs, Time (s), #SPLsMap, Time (s), Expr (%)");
-		double expr = (double)(spls.size())/distinctPLs * 100;
+		stats.println("#F, #Concrete, #FMs, Time (s), #Configs, Time (s), #SPLs, #DistinctSPLs, Time (s), #SPLsMap, #DistinctSPLsMap, Time (s), Expr (%), Distinct Expr (%)");
+		double expr = (double)(spls.size())/pls.size() * 100;
+		double distinctexpr = (double)(distinctspls.size())/distinctPLs * 100;
 		stats.print(FEATURES + ",");
 		stats.print(CONCRETE_FEATURES + ",");
 		stats.print(fms.size() + ",");
@@ -141,10 +154,13 @@ public class ExpressivenessTest {
 		stats.print(configs.size() + ",");
 		stats.print(timeConfigs*1e-9 + ",");
 		stats.print(pls.size() + ",");
+		stats.print(distinctPLs + ",");
 		stats.print(timeSPLs*1e-9 + ",");
 		stats.print(spls.size() + ",");
+		stats.print(distinctspls.size() + ",");
 		stats.print(timeSPLsCovered*1e-9 + ",");
-		stats.println(expr);
+		stats.print(expr + ",");
+		stats.println(distinctexpr);
 		stats.close();
 		
 		System.out.println("Done!");

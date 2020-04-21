@@ -92,7 +92,23 @@ public class LanguageExpressiveness {
 		if (productLines == null) {
 			this.productLines = new HashSet<FMProductLine>(getMappingFunction().values());
 		}
+		
 		return this.productLines;
+	}
+	
+	public Set<FMProductLine> getDistinctProductLines() {
+		if (productLines == null) {
+			this.productLines = new HashSet<FMProductLine>(getMappingFunction().values());
+		}
+		
+		Set<FMProductLine> distinctSPLs = getAllPossibleDistinctSPLs(this.concreteFeatures);
+		Set<FMProductLine> res = new HashSet<FMProductLine>();
+		for (FMProductLine pl : this.productLines) {
+			if (distinctSPLs.contains(pl)) {
+				res.add(pl);
+			}
+		}
+		return res;
 	}
 	
 	private Map<FeatureModel, Set<FMConfig>> generateConfigurations() {
@@ -195,7 +211,24 @@ public class LanguageExpressiveness {
 		return pls;
 	}
 	
-	public static long getAllPossibleDistinctSPLs(List<String> features) {
+	public static Set<FMProductLine> getAllPossibleDistinctSPLs(List<String> features) {
+		Set<FMProductLine> pls = getAllPossibleProductLines(features);
+		
+		Set<String> S = new HashSet<String>(features);
+		Set<FMProductLine> distinctSPLs = new HashSet<FMProductLine>();
+		for (FMProductLine pl : pls) {
+			Set<String> subsetS = new HashSet<String>();
+			for (FMConfig config : pl.getConfigurations()) {
+				subsetS.addAll(config.getFeatures());
+			}
+			if (subsetS.equals(S)) {
+				distinctSPLs.add(pl);
+			}
+		}
+		return distinctSPLs;
+	}
+	
+	public static long getNumberAllPossibleDistinctSPLs(List<String> features) {
 		long res = 0;
 		int n = features.size();
 		for (int k = 0; k <= n; k++) {
