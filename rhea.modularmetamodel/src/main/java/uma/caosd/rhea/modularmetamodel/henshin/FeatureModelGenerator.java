@@ -23,6 +23,7 @@ import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelFactory;
 import uma.caosd.rhea.BasicFMmetamodel.BasicFMmetamodelPackage;
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
 import uma.caosd.rhea.BasicFMmetamodel.OrGroup;
+import uma.caosd.rhea.modularmetamodel.FeatureModelHelper;
 import uma.caosd.rhea.modularmetamodel.utils.EMFIO;
 import uma.caosd.rhea.modularmetamodel.utils.Utils;
 
@@ -82,19 +83,17 @@ public class FeatureModelGenerator {
 	public List<FeatureModel> generateAllFeatureModels(String prefixName, List<String> features) {
 		List<FeatureModel> completeFMs = new ArrayList<FeatureModel>();
 		
-		List<EObject> modelObjects = generateAllPossibleModels(prefixName, features);
-		for (EObject m : modelObjects) {
-			henshin.saveModel(m, TEMPORAL_FM);
-			FeatureModel fmTransformed = (FeatureModel) EMFIO.loadModel(this.staticMetamodels, basedir + TEMPORAL_FM);
-			completeFMs.add(fmTransformed);
+		List<FeatureModel> fms = generateAllPossibleModels(prefixName, features);
+		for (FeatureModel m : fms) {
+			if (FeatureModelHelper.isComplete(m, features)) {
+				completeFMs.add(m);
+			}
 		}
-		Utils.cleanUp(basedir + TEMPORAL_FOLDER);
-		
-		completeFMs = filterValidFeatureModels(completeFMs, features);
+		System.out.println("completeModels: " + completeFMs.size());
 		return completeFMs;
 	}
 	
-	private List<EObject> generateAllPossibleModels(String prefixName, List<String> features) {
+	private List<FeatureModel> generateAllPossibleModels(String prefixName, List<String> features) {
 		// Initialize with empty feature model
 		FeatureModel initialEmptyFM = createEmptyFeatureModel(prefixName);
 		try {
@@ -108,9 +107,14 @@ public class FeatureModelGenerator {
 		List<EObject> allModels = new ArrayList<EObject>();
 		allModels.add(initialModel);
 		
+		// All models as feature model to be returned as result
+		List<FeatureModel> allFMs = new ArrayList<FeatureModel>();
+		allFMs.add(initialEmptyFM);
+		
 		// Models to be transformed with Henshin
 		Stack<EObject> modelsToTransform = new Stack<EObject>();
 		modelsToTransform.add(initialModel);
+		
 		
 		while (!modelsToTransform.isEmpty()) {
 			EObject m = modelsToTransform.pop();
@@ -120,71 +124,34 @@ public class FeatureModelGenerator {
 			
 			// Remove duplicates
 			for (EObject mt : modelsTransformed) {
-				if (!allModels.stream().anyMatch(m2 -> EcoreUtil.equals(mt, m2))) {
-					allModels.add(mt);
-					modelsToTransform.add(mt);
+				henshin.saveModel(mt, TEMPORAL_FM);
+				FeatureModel fm = (FeatureModel) EMFIO.loadModel(this.staticMetamodels, basedir + TEMPORAL_FM);
+				if (FeatureModelHelper.isValid(fm)) {
+					// Filter duplicated
+					if (!allModels.stream().anyMatch(m2 -> EcoreUtil.equals(mt, m2))) {
+						allModels.add(mt);
+						allFMs.add(fm);
+						modelsToTransform.add(mt);
+					}
 				}
 			}
 		}
-		return allModels;
+		Utils.cleanUp(basedir + TEMPORAL_FOLDER);
+		System.out.println("allModels: " + allModels.size());
+		System.out.println("allFMs: " + allFMs.size());
+		return allFMs;
 	}
-	
-	/*
-	public List<FeatureModel> generateAllFeatureModels(String prefixName, List<String> features) {
-		List<FeatureModel> completeFMs = new ArrayList<FeatureModel>();
-		boolean end = false;
-		
-		// Initialize with empty feature model
-		List<FeatureModel> modelsToTransform = new ArrayList<FeatureModel>();
-		FeatureModel initialEmptyFM = createEmptyFeatureModel(prefixName);
-		modelsToTransform.add(initialEmptyFM);
-		
-		while (!end) {
-			end = true;
-			List<FeatureModel> newModelsToTransform = new ArrayList<FeatureModel>();
-			
-			for (FeatureModel m : modelsToTransform) {
-				if (isComplete(m, features)) {
-					completeFMs.add(m);
-				} else {
-					List<FeatureModel> auxModelsTransformed = this.applyGenerators(m, features);
-					newModelsToTransform.addAll(auxModelsTransformed);
-					end = false;
-				}
-			}
-			modelsToTransform = newModelsToTransform;
-		}
-		completeFMs = filterValidFeatureModels(completeFMs);
-		return completeFMs;
-	}
-	*/
 	
 	private List<EObject> applyGenerators(EObject model, List<String> features) {
 		List<EObject> fms = new ArrayList<EObject>();
 		
-//		// Serialize the static model
-//		try {
-//			EMFIO.saveModel(fm, this.dynamicMetamodels, basedir + TEMPORAL_FM);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		// Load the model with Henshin
-//		EObject model = henshin.loadModel(TEMPORAL_FM);
-//		
 		for (Module module : this.generators) {
 			for (Unit unit : module.getUnits()) {
 				for (String featureName : features) {
 					Map<String, String> parameters = Map.of("name", featureName);
 					
 					List<EObject> modelsTransformed = this.henshin.executeRuleForAllMatches(unit, parameters, model);
-					//System.out.println("modelsTransformed: " + modelsTransformed.size());
 					fms.addAll(modelsTransformed);
-					// Serialize the models and load them statically
-//					for (EObject m : modelsTransformed) {
-//						henshin.saveModel(m, TEMPORAL_FM);
-//						FeatureModel fmTransformed = (FeatureModel) EMFIO.loadModel(this.staticMetamodels, basedir + TEMPORAL_FM);
-//						fms.add(fmTransformed);
-//					}
 				}
 			}	
 		}
@@ -202,6 +169,7 @@ public class FeatureModelGenerator {
 	}
 	
 	private List<FeatureModel> filterValidFeatureModels(List<FeatureModel> fms, List<String> features) {
+		
 		// Feature model contains all features
 		fms = fms.stream().filter(fm -> isFeatureModelComplete(fm, features)).collect(Collectors.toList());
 		

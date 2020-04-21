@@ -1,6 +1,7 @@
 package uma.caosd.rhea.modularmetamodel;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -12,9 +13,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.google.common.collect.Sets;
+import com.google.common.math.BigIntegerMath;
 
 import uma.caosd.rhea.BasicFMmetamodel.FeatureModel;
 import uma.caosd.rhea.modularmetamodel.henshin.FeatureModelGenerator;
@@ -192,5 +193,16 @@ public class LanguageExpressiveness {
 			pls.add(new FMProductLine(s));
 		}
 		return pls;
+	}
+	
+	public static long getAllPossibleDistinctSPLs(List<String> features) {
+		long res = 0;
+		int n = features.size();
+		for (int k = 0; k <= n; k++) {
+			BigInteger ans = BigIntegerMath.binomial(n, k);
+			long binomial = ans.longValue();
+			res += binomial * Math.pow(-1, k) * Math.pow(2, Math.pow(2, n-k));
+		}
+		return res;
 	}
 }

@@ -17,6 +17,7 @@ import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.eclipse.emf.henshin.interpreter.impl.EngineImpl;
 import org.eclipse.emf.henshin.interpreter.impl.LoggingApplicationMonitor;
 import org.eclipse.emf.henshin.interpreter.impl.MatchImpl;
+import org.eclipse.emf.henshin.interpreter.impl.PartitionedEGraphImpl;
 import org.eclipse.emf.henshin.interpreter.impl.UnitApplicationImpl;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.Parameter;
@@ -28,10 +29,16 @@ import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 public class HenshinHelper {
 	private HenshinResourceSet rs;
 	private Engine engine;
+	private int threads;
 	
 	public HenshinHelper(String basedir) {
 		this.rs = new HenshinResourceSet(basedir);
 		this.engine = new EngineImpl();
+		
+		// Determine number of threads to be used:
+		this.threads = Math.max(Runtime.getRuntime().availableProcessors() / 2, 1);
+		engine.getOptions().put(Engine.OPTION_WORKER_THREADS, threads);
+		//engine.getOptions().put(Engine.OPTION_DESTROY_MATCHES, true);
 	}
 	
 	public EPackage registerMetamodel(String metamodelPath) {
@@ -94,10 +101,10 @@ public class HenshinHelper {
 	}
 	
 	private List<EObject> executeRuleForAllMatches(Rule rule, Map<String,String> parameters, EObject model) {						
-		EObject modelCopy = EcoreUtil.copy(model);
+		//EObject modelCopy = EcoreUtil.copy(model);
 		
 		// Initialize the graph
-		EGraph graph = new EGraphImpl(modelCopy);
+		EGraph graph = new PartitionedEGraphImpl(model, threads);
 		
 		// Set parameters
 		Match partialMatch = new MatchImpl(rule);
@@ -113,10 +120,10 @@ public class HenshinHelper {
 			//System.out.println(match);
 			
 			// Copy the model
-			EObject m = EcoreUtil.copy(modelCopy);
+			EObject m = EcoreUtil.copy(model);
 			
 			// Initialize the graph:
-			EGraph g = new EGraphImpl(m);
+			EGraph g = new PartitionedEGraphImpl(m, threads);
 						
 			UnitApplication application = new UnitApplicationImpl(engine, g, match.getRule(), match);
 			//RuleApplication application = new RuleApplicationImpl(engine, g, match.getRule(), match);
