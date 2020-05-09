@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_8g4-wIryEeq9PNyPL3pmOg">
+  <imports href="BasicFMsmetamodel.ecore#/"/>
+  <units xsi:type="henshin:IteratedUnit" xmi:id="__KQ0wIryEeq9PNyPL3pmOg" name="DiscretizeNumericalFeature" iterations="x"/>
+  <units xsi:type="henshin:Rule" xmi:id="_G_nAYIrzEeq9PNyPL3pmOg" name="NumericalFeature2OptionalFeature">
+    <lhs xmi:id="_G_o1kIrzEeq9PNyPL3pmOg" name="Lhs">
+      <nodes xmi:id="_MOkYkIrzEeq9PNyPL3pmOg">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_G_o1kYrzEeq9PNyPL3pmOg" name="Rhs">
+      <nodes xmi:id="_MOkYkYrzEeq9PNyPL3pmOg">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+      </nodes>
+      <nodes xmi:id="_SyuCEIrzEeq9PNyPL3pmOg">
+        <type href="BasicFMsmetamodel.ecore#//Feature"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_MOkYkorzEeq9PNyPL3pmOg" origin="_MOkYkIrzEeq9PNyPL3pmOg" image="_MOkYkYrzEeq9PNyPL3pmOg"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_ws9BMIrzEeq9PNyPL3pmOg" name="RemoveNumericalFeature">
+    <lhs xmi:id="_ws-PUIrzEeq9PNyPL3pmOg" name="Lhs"/>
+    <rhs xmi:id="_ws-PUYrzEeq9PNyPL3pmOg" name="Rhs"/>
+  </units>
+</henshin:Module>

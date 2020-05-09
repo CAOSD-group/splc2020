@@ -1,2 +1,2 @@
-#F, #Concrete, #FMs, Time (s), #Configs, Time (s), #SPLs, #DistinctSPLs, Time (s), #SPLsMap, #DistinctSPLsMap, Time (s), Expr (%), Distinct Expr (%)
-2,1,4,0.3975091,2,0.0347898,4,2,0.0045096,3,2,2.8659497000000003,75.0,100.0
+#F, #Concrete, #FMs, Time (s), #Configs, Time (s), #SPLs, #DistinctSPLs, Time (s)
+3,2,3120,64.25889860000001,4,0.025166,16,10,0.0010618000000000001,

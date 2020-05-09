@@ -29,6 +29,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CrossTreeConstraint" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Alternative" eSuperTypes="#//Feature"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OrGroup" eSuperTypes="#//Feature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlternativeGroup" eSuperTypes="#//FeatureGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OrGroup" eSuperTypes="#//FeatureGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureGroup" eSuperTypes="#//Feature"/>
 </ecore:EPackage>

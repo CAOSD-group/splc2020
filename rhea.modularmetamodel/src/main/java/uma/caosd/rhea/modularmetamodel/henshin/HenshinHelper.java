@@ -130,7 +130,7 @@ public class HenshinHelper {
 			//application.setCompleteMatch(match);
 			//application.execute(new LoggingApplicationMonitor());
 			application.execute(null);
-			
+			engine.getOptions().put(Engine.OPTION_CHECK_DANGLING, false);
 			results.add(m);
 		}
 		return results;

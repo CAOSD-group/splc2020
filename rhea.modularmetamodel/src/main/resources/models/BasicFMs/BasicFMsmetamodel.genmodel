@@ -28,7 +28,8 @@
       <genOperations ecoreOperation="BasicFMsmetamodel.ecore#//Feature/isRoot"/>
     </genClasses>
     <genClasses image="false" ecoreClass="BasicFMsmetamodel.ecore#//CrossTreeConstraint"/>
-    <genClasses ecoreClass="BasicFMsmetamodel.ecore#//Alternative"/>
+    <genClasses ecoreClass="BasicFMsmetamodel.ecore#//AlternativeGroup"/>
     <genClasses ecoreClass="BasicFMsmetamodel.ecore#//OrGroup"/>
+    <genClasses ecoreClass="BasicFMsmetamodel.ecore#//FeatureGroup"/>
   </genPackages>
 </genmodel:GenModel>

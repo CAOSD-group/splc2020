@@ -8,6 +8,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightFeature" lowerBound="1"
         eType="ecore:EClass BasicFMsmetamodel.ecore#//Feature"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="REQUIRES" eSuperTypes="#//BasicConstraint"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EXCLUDES" eSuperTypes="#//BasicConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Requires" eSuperTypes="#//BasicConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Excludes" eSuperTypes="#//BasicConstraint"/>
 </ecore:EPackage>

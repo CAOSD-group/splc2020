@@ -26,8 +26,8 @@ public class ExpressivenessTest {
 	public static final String STATS_DIR = "src/main/resources/models/Stats/";
 	public static final int RUNS = 1;
 	
-	public static final int FEATURES = 2;
-	public static final int CONCRETE_FEATURES = 1;
+	public static final int FEATURES = 5;
+	public static final int CONCRETE_FEATURES = 2;
 	
 	public static void main(String[] args) throws IOException {
 //		PrintStream o = new PrintStream(new File(STATS_DIR + "output.txt")); 
@@ -36,11 +36,11 @@ public class ExpressivenessTest {
 		String basedir = BASE_DIR;
 		
 		// M0 (BasicFMs without constraints):
-		
+		/*
 		List<String> dynamicMetamodels = List.of("BasicFMsmetamodel.ecore");
 		List<EPackage> staticMetamodels = List.of(BasicFMmetamodelPackage.eINSTANCE);
 		List<String> generators = List.of("RootGen.henshin", "FeatureGen.henshin", "OrGroupGen.henshin", "AlternativeGen.henshin");
-		
+		*/
 		
 		// BasicFMs
 		/*
@@ -48,6 +48,10 @@ public class ExpressivenessTest {
 		List<EPackage> staticMetamodels = List.of(BasicFMmetamodelPackage.eINSTANCE, BasicConstraintsPackage.eINSTANCE);
 		List<String> generators = List.of("RootGen.henshin", "FeatureGen.henshin", "OrGroupGen.henshin", "AlternativeGen.henshin", "BasicConstraintsGen.henshin");
 		*/
+		
+		List<String> dynamicMetamodels = List.of("BasicFMsmetamodel.ecore");
+		List<EPackage> staticMetamodels = List.of(BasicFMmetamodelPackage.eINSTANCE, BasicConstraintsPackage.eINSTANCE);
+		List<String> generators = List.of("RootGen.henshin", "FeatureGen.henshin");
 		
 		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(STATS_DIR + "resuls.txt")));
 		
@@ -107,61 +111,80 @@ public class ExpressivenessTest {
 			EMFIO.saveModel(fm, metamodel, TEMPORAL_FILES + fm.getName() + ".xmi");
 		}
 		*/
-		out.println();
-		out.println("********** MAPPING: FM -> CONFIGS -> SPL **********");
-		System.out.println("Generating Configurations...");
-		start = System.nanoTime();
-		var fmConfigs = le.getConfigurations();
-		timeSPLsCovered = System.nanoTime() - start;
-		var fmMapping = le.getMappingFunction();
-		for (FeatureModel fm : fms) {
-			out.println(fm.getName() + " (" + fmConfigs.get(fm).size() + " configs) -> " + fmConfigs.get(fm) + " -> " + fmMapping.get(fm));
-		}
 		
-		out.println();
-		out.println("********** ALL SPLS COVERED BY FEATURE MODELS IN L **********");
-		System.out.println("Generating SPLs...");
-		Set<FMProductLine> spls = le.getProductLines();
-		out.println("#SPLs: " + spls.size());
-		for (FMProductLine pl : spls) {
-			out.println("SPL: " + pl);
-		}
-		out.println();
-		out.println("********** ALL DISTINCT SPLS COVERED BY FEATURE MODELS IN L **********");
-		Set<FMProductLine> distinctspls = le.getDistinctProductLines();
-		out.println("#SPLs: " + distinctspls.size());
-		for (FMProductLine pl : distinctspls) {
-			out.println("SPL: " + pl);
-		}
-		
+		if (fms.size() > 1000) {
+			out.close();
+			
+			// Print stats
+			PrintWriter stats = new PrintWriter(new BufferedWriter(new FileWriter(STATS_DIR + "resultsTime.txt")));
+			stats.println("#F, #Concrete, #FMs, Time (s), #Configs, Time (s), #SPLs, #DistinctSPLs, Time (s)");
+			stats.print(FEATURES + ",");
+			stats.print(CONCRETE_FEATURES + ",");
+			stats.print(fms.size() + ",");
+			stats.print(timeFMs*1e-9 + ",");
+			stats.print(configs.size() + ",");
+			stats.print(timeConfigs*1e-9 + ",");
+			stats.print(pls.size() + ",");
+			stats.print(distinctPLs + ",");
+			stats.print(timeSPLs*1e-9 + ",");
+			stats.close();
+		} else {
+			out.println();
+			out.println("********** MAPPING: FM -> CONFIGS -> SPL **********");
+			System.out.println("Generating Configurations...");
+			start = System.nanoTime();
+			var fmConfigs = le.getConfigurations();
+			timeSPLsCovered = System.nanoTime() - start;
+			var fmMapping = le.getMappingFunction();
+			for (FeatureModel fm : fms) {
+				out.println(fm.getName() + " (" + fmConfigs.get(fm).size() + " configs) -> " + fmConfigs.get(fm) + " -> " + fmMapping.get(fm));
+			}
+			
+			out.println();
+			out.println("********** ALL SPLS COVERED BY FEATURE MODELS IN L **********");
+			System.out.println("Generating SPLs...");
+			Set<FMProductLine> spls = le.getProductLines();
+			out.println("#SPLs: " + spls.size());
+			for (FMProductLine pl : spls) {
+				out.println("SPL: " + pl);
+			}
+			out.println();
+			out.println("********** ALL DISTINCT SPLS COVERED BY FEATURE MODELS IN L **********");
+			Set<FMProductLine> distinctspls = le.getDistinctProductLines();
+			out.println("#SPLs: " + distinctspls.size());
+			for (FMProductLine pl : distinctspls) {
+				out.println("SPL: " + pl);
+			}
+			
 
-		out.println();
-		out.println("********** STATS **********");
-		out.println("#SPLs covered by FMs in L: " + spls.size() + "/" + pls.size() + " (" + (double)(spls.size())/pls.size() * 100 + "%)");
-		out.println("#Distinct SPLs covered by FMs in L: " + distinctspls.size() + "/" + distinctPLs + " (" + (double)(distinctspls.size())/distinctPLs * 100 + "%)");
-		
-		out.close();
-		
-		// Print stats
-		PrintWriter stats = new PrintWriter(new BufferedWriter(new FileWriter(STATS_DIR + "resultsTime.txt")));
-		stats.println("#F, #Concrete, #FMs, Time (s), #Configs, Time (s), #SPLs, #DistinctSPLs, Time (s), #SPLsMap, #DistinctSPLsMap, Time (s), Expr (%), Distinct Expr (%)");
-		double expr = (double)(spls.size())/pls.size() * 100;
-		double distinctexpr = (double)(distinctspls.size())/distinctPLs * 100;
-		stats.print(FEATURES + ",");
-		stats.print(CONCRETE_FEATURES + ",");
-		stats.print(fms.size() + ",");
-		stats.print(timeFMs*1e-9 + ",");
-		stats.print(configs.size() + ",");
-		stats.print(timeConfigs*1e-9 + ",");
-		stats.print(pls.size() + ",");
-		stats.print(distinctPLs + ",");
-		stats.print(timeSPLs*1e-9 + ",");
-		stats.print(spls.size() + ",");
-		stats.print(distinctspls.size() + ",");
-		stats.print(timeSPLsCovered*1e-9 + ",");
-		stats.print(expr + ",");
-		stats.println(distinctexpr);
-		stats.close();
+			out.println();
+			out.println("********** STATS **********");
+			out.println("#SPLs covered by FMs in L: " + spls.size() + "/" + pls.size() + " (" + (double)(spls.size())/pls.size() * 100 + "%)");
+			out.println("#Distinct SPLs covered by FMs in L: " + distinctspls.size() + "/" + distinctPLs + " (" + (double)(distinctspls.size())/distinctPLs * 100 + "%)");
+			
+			out.close();
+			
+			// Print stats
+			PrintWriter stats = new PrintWriter(new BufferedWriter(new FileWriter(STATS_DIR + "resultsTime.txt")));
+			stats.println("#F, #Concrete, #FMs, Time (s), #Configs, Time (s), #SPLs, #DistinctSPLs, Time (s), #SPLsMap, #DistinctSPLsMap, Time (s), Expr (%), Distinct Expr (%)");
+			double expr = (double)(spls.size())/pls.size() * 100;
+			double distinctexpr = (double)(distinctspls.size())/distinctPLs * 100;
+			stats.print(FEATURES + ",");
+			stats.print(CONCRETE_FEATURES + ",");
+			stats.print(fms.size() + ",");
+			stats.print(timeFMs*1e-9 + ",");
+			stats.print(configs.size() + ",");
+			stats.print(timeConfigs*1e-9 + ",");
+			stats.print(pls.size() + ",");
+			stats.print(distinctPLs + ",");
+			stats.print(timeSPLs*1e-9 + ",");
+			stats.print(spls.size() + ",");
+			stats.print(distinctspls.size() + ",");
+			stats.print(timeSPLsCovered*1e-9 + ",");
+			stats.print(expr + ",");
+			stats.println(distinctexpr);
+			stats.close();
+		}
 		
 		System.out.println("Done!");
 					
